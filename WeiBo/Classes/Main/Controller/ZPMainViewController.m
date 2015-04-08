@@ -21,9 +21,10 @@
 - (void)addChildVc
 {
     [self addChildvcWithSbName:@"Home" title:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_highlighted"];
+    [self addChildvcWithSbName:@"Message" title:@"消息" normalImage:@"tabbar_message_center" selectedImage:@"tabbar_message_center_highlighted"];
     [self addChildvcWithSbName:@"Discover" title:@"发现" normalImage:@"tabbar_discover" selectedImage:@"tabbar_discover_highlighted"];
-    [self addChildvcWithSbName:@"Home" title:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_highlighted"];
-    [self addChildvcWithSbName:@"Home" title:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_highlighted"];
+
+    [self addChildvcWithSbName:@"Profile" title:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_highlighted"];
 }
 
 - (void)addChildvcWithSbName:(NSString *)sbName title:(NSString *)title normalImage:(NSString *)normal selectedImage:(NSString *)selected

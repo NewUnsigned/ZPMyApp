@@ -26,6 +26,7 @@
 		7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960D1AD55FFA00780820 /* Profile.storyboard */; };
 		758096101AD5604700780820 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960F1AD5604700780820 /* Discover.storyboard */; };
 		758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096121AD5606F00780820 /* ZPDisCoverViewController.m */; };
+		75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		758096111AD5606F00780820 /* ZPDisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPDisCoverViewController.h; sourceTree = "<group>"; };
 		758096121AD5606F00780820 /* ZPDisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPDisCoverViewController.m; sourceTree = "<group>"; };
 		758096141AD569A300780820 /* WeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiBo_Prefix.pch; sourceTree = "<group>"; };
+		75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPTabBar.h; sourceTree = "<group>"; };
+		75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 		758095E51AD5542F00780820 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */,
+				75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */,
 				758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */,
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
+				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

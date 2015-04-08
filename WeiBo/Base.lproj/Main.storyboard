@@ -9,7 +9,7 @@
             <objects>
                 <tabBarController id="VyQ-TH-Afe" customClass="ZPMainViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="cvW-pH-y5Q">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="cvW-pH-y5Q" customClass="ZPTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

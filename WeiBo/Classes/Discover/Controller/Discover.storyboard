@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="-833" y="166"/>
         </scene>
-        <!--Dis Cover View Controller-->
+        <!--发现-->
         <scene sceneID="tX1-fi-RoV">
             <objects>
                 <viewController id="bmA-pb-esl" customClass="ZPDisCoverViewController" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bfy-nA-yxf"/>
+                    <navigationItem key="navigationItem" title="发现" id="bfy-nA-yxf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrM-8v-y5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
