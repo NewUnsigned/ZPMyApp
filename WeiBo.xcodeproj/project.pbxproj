@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		758095B21AD51D0300780820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758095B01AD51D0300780820 /* Main.storyboard */; };
+		758095B41AD51D0300780820 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 758095B31AD51D0300780820 /* Images.xcassets */; };
+		758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758095B51AD51D0300780820 /* LaunchScreen.xib */; };
+		758095C31AD51D0300780820 /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095C21AD51D0300780820 /* WeiBoTests.m */; };
+		758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095DC1AD5542F00780820 /* UIBarButtonItem+Extension.m */; };
+		758095EF1AD5542F00780820 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095DE1AD5542F00780820 /* UIView+Extension.m */; };
+		758095F01AD5542F00780820 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095E31AD5542F00780820 /* AppDelegate.m */; };
+		758095F11AD5542F00780820 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095E41AD5542F00780820 /* main.m */; };
+		758095F61AD5554400780820 /* Libs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758095F51AD5554400780820 /* Libs.storyboard */; };
+		758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095F81AD5559200780820 /* ZPLibsTableViewController.m */; };
+		758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095FB1AD555FB00780820 /* ZPMainViewController.m */; };
+		758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096011AD5568900780820 /* ZPHomeTableViewController.m */; };
+		758096041AD5569600780820 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758096031AD5569600780820 /* Home.storyboard */; };
+		758096061AD55F8600780820 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758096051AD55F8600780820 /* Message.storyboard */; };
+		758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096081AD55FA400780820 /* ZPMesTableViewController.m */; };
+		7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7580960B1AD55FEE00780820 /* ZPProfileViewController.m */; };
+		7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960D1AD55FFA00780820 /* Profile.storyboard */; };
+		758096101AD5604700780820 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960F1AD5604700780820 /* Discover.storyboard */; };
+		758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096121AD5606F00780820 /* ZPDisCoverViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		758095BD1AD51D0300780820 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7580959B1AD51D0300780820 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 758095A21AD51D0300780820;
+			remoteInfo = WeiBo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		758095A31AD51D0300780820 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		758095A71AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		758095B11AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		758095B31AD51D0300780820 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		758095B61AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		758095BC1AD51D0300780820 /* WeiBoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiBoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		758095C11AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		758095C21AD51D0300780820 /* WeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiBoTests.m; sourceTree = "<group>"; };
+		758095DB1AD5542F00780820 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		758095DC1AD5542F00780820 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		758095DD1AD5542F00780820 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		758095DE1AD5542F00780820 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		758095E21AD5542F00780820 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		758095E31AD5542F00780820 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		758095E41AD5542F00780820 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		758095F51AD5554400780820 /* Libs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Libs.storyboard; sourceTree = "<group>"; };
+		758095F71AD5559200780820 /* ZPLibsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPLibsTableViewController.h; sourceTree = "<group>"; };
+		758095F81AD5559200780820 /* ZPLibsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPLibsTableViewController.m; sourceTree = "<group>"; };
+		758095FA1AD555FB00780820 /* ZPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPMainViewController.h; sourceTree = "<group>"; };
+		758095FB1AD555FB00780820 /* ZPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPMainViewController.m; sourceTree = "<group>"; };
+		758096001AD5568900780820 /* ZPHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPHomeTableViewController.h; sourceTree = "<group>"; };
+		758096011AD5568900780820 /* ZPHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPHomeTableViewController.m; sourceTree = "<group>"; };
+		758096031AD5569600780820 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		758096051AD55F8600780820 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		758096071AD55FA400780820 /* ZPMesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPMesTableViewController.h; sourceTree = "<group>"; };
+		758096081AD55FA400780820 /* ZPMesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPMesTableViewController.m; sourceTree = "<group>"; };
+		7580960A1AD55FEE00780820 /* ZPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPProfileViewController.h; sourceTree = "<group>"; };
+		7580960B1AD55FEE00780820 /* ZPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPProfileViewController.m; sourceTree = "<group>"; };
+		7580960D1AD55FFA00780820 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		7580960F1AD5604700780820 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		758096111AD5606F00780820 /* ZPDisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPDisCoverViewController.h; sourceTree = "<group>"; };
+		758096121AD5606F00780820 /* ZPDisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPDisCoverViewController.m; sourceTree = "<group>"; };
+		758096141AD569A300780820 /* WeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiBo_Prefix.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		758095A01AD51D0300780820 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		758095B91AD51D0300780820 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7580959A1AD51D0300780820 = {
+			isa = PBXGroup;
+			children = (
+				758095A51AD51D0300780820 /* WeiBo */,
+				758095BF1AD51D0300780820 /* WeiBoTests */,
+				758095A41AD51D0300780820 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		758095A41AD51D0300780820 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				758095A31AD51D0300780820 /* WeiBo.app */,
+				758095BC1AD51D0300780820 /* WeiBoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		758095A51AD51D0300780820 /* WeiBo */ = {
+			isa = PBXGroup;
+			children = (
+				758095CC1AD5542F00780820 /* Classes */,
+				758095A61AD51D0300780820 /* Supporting Files */,
+			);
+			path = WeiBo;
+			sourceTree = "<group>";
+		};
+		758095A61AD51D0300780820 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				758095B31AD51D0300780820 /* Images.xcassets */,
+				758095B51AD51D0300780820 /* LaunchScreen.xib */,
+				758095A71AD51D0300780820 /* Info.plist */,
+				758096141AD569A300780820 /* WeiBo_Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		758095BF1AD51D0300780820 /* WeiBoTests */ = {
+			isa = PBXGroup;
+			children = (
+				758095C21AD51D0300780820 /* WeiBoTests.m */,
+				758095C01AD51D0300780820 /* Supporting Files */,
+			);
+			path = WeiBoTests;
+			sourceTree = "<group>";
+		};
+		758095C01AD51D0300780820 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				758095C11AD51D0300780820 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		758095CC1AD5542F00780820 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				758095CD1AD5542F00780820 /* Discover */,
+				758095D11AD5542F00780820 /* Home */,
+				758095D51AD5542F00780820 /* Libs */,
+				758095D91AD5542F00780820 /* Main */,
+				758095E61AD5542F00780820 /* Message */,
+				758095EA1AD5542F00780820 /* Profile */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		758095CD1AD5542F00780820 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				758095CE1AD5542F00780820 /* Controller */,
+				758095CF1AD5542F00780820 /* Model */,
+				758095D01AD5542F00780820 /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		758095CE1AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7580960F1AD5604700780820 /* Discover.storyboard */,
+				758096111AD5606F00780820 /* ZPDisCoverViewController.h */,
+				758096121AD5606F00780820 /* ZPDisCoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095CF1AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095D01AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758095D11AD5542F00780820 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				758095D21AD5542F00780820 /* Controller */,
+				758095D31AD5542F00780820 /* Model */,
+				758095D41AD5542F00780820 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		758095D21AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				758096001AD5568900780820 /* ZPHomeTableViewController.h */,
+				758096011AD5568900780820 /* ZPHomeTableViewController.m */,
+				758096031AD5569600780820 /* Home.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095D31AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095D41AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758095D51AD5542F00780820 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				758095D61AD5542F00780820 /* Controller */,
+				758095D71AD5542F00780820 /* Model */,
+				758095D81AD5542F00780820 /* View */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		758095D61AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				758095F51AD5554400780820 /* Libs.storyboard */,
+				758095F71AD5559200780820 /* ZPLibsTableViewController.h */,
+				758095F81AD5559200780820 /* ZPLibsTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095D71AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095D81AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758095D91AD5542F00780820 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				758095DA1AD5542F00780820 /* Category */,
+				758095DF1AD5542F00780820 /* Controller */,
+				758095E01AD5542F00780820 /* Model */,
+				758095E11AD5542F00780820 /* Other */,
+				758095E51AD5542F00780820 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		758095DA1AD5542F00780820 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				758095DB1AD5542F00780820 /* UIBarButtonItem+Extension.h */,
+				758095DC1AD5542F00780820 /* UIBarButtonItem+Extension.m */,
+				758095DD1AD5542F00780820 /* UIView+Extension.h */,
+				758095DE1AD5542F00780820 /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		758095DF1AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				758095B01AD51D0300780820 /* Main.storyboard */,
+				758095FA1AD555FB00780820 /* ZPMainViewController.h */,
+				758095FB1AD555FB00780820 /* ZPMainViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095E01AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095E11AD5542F00780820 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				758095E21AD5542F00780820 /* AppDelegate.h */,
+				758095E31AD5542F00780820 /* AppDelegate.m */,
+				758095E41AD5542F00780820 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		758095E51AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758095E61AD5542F00780820 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				758095E71AD5542F00780820 /* Controller */,
+				758095E81AD5542F00780820 /* Model */,
+				758095E91AD5542F00780820 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		758095E71AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				758096051AD55F8600780820 /* Message.storyboard */,
+				758096071AD55FA400780820 /* ZPMesTableViewController.h */,
+				758096081AD55FA400780820 /* ZPMesTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095E81AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095E91AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758095EA1AD5542F00780820 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				758095EB1AD5542F00780820 /* Controller */,
+				758095EC1AD5542F00780820 /* Model */,
+				758095ED1AD5542F00780820 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		758095EB1AD5542F00780820 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7580960A1AD55FEE00780820 /* ZPProfileViewController.h */,
+				7580960B1AD55FEE00780820 /* ZPProfileViewController.m */,
+				7580960D1AD55FFA00780820 /* Profile.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758095EC1AD5542F00780820 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758095ED1AD5542F00780820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		758095A21AD51D0300780820 /* WeiBo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 758095C61AD51D0300780820 /* Build configuration list for PBXNativeTarget "WeiBo" */;
+			buildPhases = (
+				7580959F1AD51D0300780820 /* Sources */,
+				758095A01AD51D0300780820 /* Frameworks */,
+				758095A11AD51D0300780820 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeiBo;
+			productName = WeiBo;
+			productReference = 758095A31AD51D0300780820 /* WeiBo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		758095BB1AD51D0300780820 /* WeiBoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 758095C91AD51D0300780820 /* Build configuration list for PBXNativeTarget "WeiBoTests" */;
+			buildPhases = (
+				758095B81AD51D0300780820 /* Sources */,
+				758095B91AD51D0300780820 /* Frameworks */,
+				758095BA1AD51D0300780820 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				758095BE1AD51D0300780820 /* PBXTargetDependency */,
+			);
+			name = WeiBoTests;
+			productName = WeiBoTests;
+			productReference = 758095BC1AD51D0300780820 /* WeiBoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7580959B1AD51D0300780820 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZP;
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "赵鹏";
+				TargetAttributes = {
+					758095A21AD51D0300780820 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					758095BB1AD51D0300780820 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 758095A21AD51D0300780820;
+					};
+				};
+			};
+			buildConfigurationList = 7580959E1AD51D0300780820 /* Build configuration list for PBXProject "WeiBo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7580959A1AD51D0300780820;
+			productRefGroup = 758095A41AD51D0300780820 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				758095A21AD51D0300780820 /* WeiBo */,
+				758095BB1AD51D0300780820 /* WeiBoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		758095A11AD51D0300780820 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
+				758096101AD5604700780820 /* Discover.storyboard in Resources */,
+				758096041AD5569600780820 /* Home.storyboard in Resources */,
+				758095B21AD51D0300780820 /* Main.storyboard in Resources */,
+				758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */,
+				758096061AD55F8600780820 /* Message.storyboard in Resources */,
+				7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */,
+				758095B41AD51D0300780820 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		758095BA1AD51D0300780820 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7580959F1AD51D0300780820 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				758095EF1AD5542F00780820 /* UIView+Extension.m in Sources */,
+				758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */,
+				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
+				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
+				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
+				758095F01AD5542F00780820 /* AppDelegate.m in Sources */,
+				758095F11AD5542F00780820 /* main.m in Sources */,
+				758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */,
+				758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */,
+				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		758095B81AD51D0300780820 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				758095C31AD51D0300780820 /* WeiBoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		758095BE1AD51D0300780820 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 758095A21AD51D0300780820 /* WeiBo */;
+			targetProxy = 758095BD1AD51D0300780820 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		758095B01AD51D0300780820 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				758095B11AD51D0300780820 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		758095B51AD51D0300780820 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				758095B61AD51D0300780820 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		758095C41AD51D0300780820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		758095C51AD51D0300780820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		758095C71AD51D0300780820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = WeiBo/WeiBo_Prefix.pch;
+				INFOPLIST_FILE = WeiBo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		758095C81AD51D0300780820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = WeiBo/WeiBo_Prefix.pch;
+				INFOPLIST_FILE = WeiBo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		758095CA1AD51D0300780820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeiBoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeiBo.app/WeiBo";
+			};
+			name = Debug;
+		};
+		758095CB1AD51D0300780820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeiBoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeiBo.app/WeiBo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7580959E1AD51D0300780820 /* Build configuration list for PBXProject "WeiBo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				758095C41AD51D0300780820 /* Debug */,
+				758095C51AD51D0300780820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		758095C61AD51D0300780820 /* Build configuration list for PBXNativeTarget "WeiBo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				758095C71AD51D0300780820 /* Debug */,
+				758095C81AD51D0300780820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		758095C91AD51D0300780820 /* Build configuration list for PBXNativeTarget "WeiBoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				758095CA1AD51D0300780820 /* Debug */,
+				758095CB1AD51D0300780820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7580959B1AD51D0300780820 /* Project object */;
+}
