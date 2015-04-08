@@ -7,6 +7,7 @@
 //
 
 #import "ZPMainViewController.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface ZPMainViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self addChildVc];
 }
 - (void)addChildVc
