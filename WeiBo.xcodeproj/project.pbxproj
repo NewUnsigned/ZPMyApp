@@ -26,6 +26,9 @@
 		7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960D1AD55FFA00780820 /* Profile.storyboard */; };
 		758096101AD5604700780820 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960F1AD5604700780820 /* Discover.storyboard */; };
 		758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096121AD5606F00780820 /* ZPDisCoverViewController.m */; };
+		75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */; };
+		75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A303DE1AD591B60033CF65 /* Scan.storyboard */; };
+		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
 		75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */; };
 		C933220AC3C05200743C3B5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E709656F10F050A21357C9DE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +77,11 @@
 		758096111AD5606F00780820 /* ZPDisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPDisCoverViewController.h; sourceTree = "<group>"; };
 		758096121AD5606F00780820 /* ZPDisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPDisCoverViewController.m; sourceTree = "<group>"; };
 		758096141AD569A300780820 /* WeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiBo_Prefix.pch; sourceTree = "<group>"; };
+		75A303DB1AD591AA0033CF65 /* ZPScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPScanViewController.h; sourceTree = "<group>"; };
+		75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPScanViewController.m; sourceTree = "<group>"; };
+		75A303DE1AD591B60033CF65 /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
+		75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBarcodeViewController.h; sourceTree = "<group>"; };
+		75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBarcodeViewController.m; sourceTree = "<group>"; };
 		75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPTabBar.h; sourceTree = "<group>"; };
 		75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPTabBar.m; sourceTree = "<group>"; };
 		873E2D08B841AD92E558395E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +233,8 @@
 		758095D21AD5542F00780820 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				75A303DA1AD5914B0033CF65 /* ScanLife */,
+				75A303D91AD590F30033CF65 /* Friendsearch */,
 				758096001AD5568900780820 /* ZPHomeTableViewController.h */,
 				758096011AD5568900780820 /* ZPHomeTableViewController.m */,
 				758096031AD5569600780820 /* Home.storyboard */,
@@ -407,6 +417,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		75A303D91AD590F30033CF65 /* Friendsearch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Friendsearch;
+			sourceTree = "<group>";
+		};
+		75A303DA1AD5914B0033CF65 /* ScanLife */ = {
+			isa = PBXGroup;
+			children = (
+				75A303DB1AD591AA0033CF65 /* ZPScanViewController.h */,
+				75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */,
+				75A303DE1AD591B60033CF65 /* Scan.storyboard */,
+				75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */,
+				75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */,
+			);
+			name = ScanLife;
+			sourceTree = "<group>";
+		};
 		7647336C84F03F22CA7640BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +536,7 @@
 				758096061AD55F8600780820 /* Message.storyboard in Resources */,
 				7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */,
 				758095B41AD51D0300780820 /* Images.xcassets in Resources */,
+				75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,10 +594,12 @@
 				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
 				758095F01AD5542F00780820 /* AppDelegate.m in Sources */,
 				758095F11AD5542F00780820 /* main.m in Sources */,
+				75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */,
 				758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */,
 				758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */,
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
 				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
+				75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,6 +40,8 @@
 }
 - (void)rightBarButtomItemClicked
 {
-    NSLog(@"%s",__func__);
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Scan" bundle:nil];
+    UIViewController *vc = sb.instantiateInitialViewController;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 @end

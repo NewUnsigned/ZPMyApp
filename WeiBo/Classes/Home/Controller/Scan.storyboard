@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GzW-EN-H7g">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--条形码-->
+        <scene sceneID="4Vp-xJ-zkx">
+            <objects>
+                <viewController id="inI-Jc-u1w" customClass="ZPBarcodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XEh-8e-GT4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zoT-DI-oJT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7fb-2G-a1S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="条形码" id="mpX-o4-I4O">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="条形码" id="DcB-Nr-5fF">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="opD-CH-GaV">
+                            <color key="tintColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="3m5-XL-SPp">
+                            <color key="tintColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4W-9w-rDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663" y="818"/>
+        </scene>
+        <!--二维码-->
+        <scene sceneID="hJf-XX-CXT">
+            <objects>
+                <navigationController id="XjF-m7-mEA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="二维码" id="TFq-ln-fqd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Anx-5o-S70">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DsY-Ge-lNN" kind="relationship" relationship="rootViewController" id="Ayu-Dc-hQY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78x-xm-F2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="118"/>
+        </scene>
+        <!--条形码-->
+        <scene sceneID="ls4-Al-7QZ">
+            <objects>
+                <navigationController id="P74-nd-I3E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="条形码" id="nZq-wR-eVg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RgB-44-1Xy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="inI-Jc-u1w" kind="relationship" relationship="rootViewController" id="qUc-Tq-4KA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rb7-6k-ORP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="818"/>
+        </scene>
+        <!--二维码-->
+        <scene sceneID="wlG-eM-acR">
+            <objects>
+                <viewController id="DsY-Ge-lNN" customClass="ZPScanViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fDb-rt-cEg"/>
+                        <viewControllerLayoutGuide type="bottom" id="l7m-Lm-rGZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K2Y-Z9-RC9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="二维码" id="HR6-TC-aur"/>
+                    <navigationItem key="navigationItem" title="二维码" id="Xvz-UP-JuS">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="ydh-oW-lAA">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="Kdd-SJ-kdL">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1d-bI-Gnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="154"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="foc-rr-A38">
+            <objects>
+                <tabBarController id="GzW-EN-H7g" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="iQc-VT-5mC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XjF-m7-mEA" kind="relationship" relationship="viewControllers" id="Xci-9i-Sbi"/>
+                        <segue destination="P74-nd-I3E" kind="relationship" relationship="viewControllers" id="wGi-c1-e26"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Syw-w4-elO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-673" y="482"/>
+        </scene>
+    </scenes>
+</document>

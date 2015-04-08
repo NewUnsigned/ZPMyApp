@@ -6,11 +6,11 @@
 // project.
 
 
-// AFNetWorking
-#define COCOAPODS_POD_AVAILABLE_AFNetWorking
-#define COCOAPODS_VERSION_MAJOR_AFNetWorking 2
-#define COCOAPODS_VERSION_MINOR_AFNetWorking 5
-#define COCOAPODS_VERSION_PATCH_AFNetWorking 2
+// AFNetworking
+#define COCOAPODS_POD_AVAILABLE_AFNetworking
+#define COCOAPODS_VERSION_MAJOR_AFNetworking 2
+#define COCOAPODS_VERSION_MINOR_AFNetworking 5
+#define COCOAPODS_VERSION_PATCH_AFNetworking 2
 
 // AFNetworking/NSURLConnection
 #define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLConnection
