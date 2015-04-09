@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		758095B21AD51D0300780820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758095B01AD51D0300780820 /* Main.storyboard */; };
-		758095B41AD51D0300780820 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 758095B31AD51D0300780820 /* Images.xcassets */; };
 		758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758095B51AD51D0300780820 /* LaunchScreen.xib */; };
 		758095C31AD51D0300780820 /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095C21AD51D0300780820 /* WeiBoTests.m */; };
 		758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095DC1AD5542F00780820 /* UIBarButtonItem+Extension.m */; };
@@ -29,6 +28,7 @@
 		75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */; };
 		75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A303DE1AD591B60033CF65 /* Scan.storyboard */; };
 		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
+		75AFACC81AD64D650031B787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AFACC71AD64D650031B787 /* Images.xcassets */; };
 		75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */; };
 		C933220AC3C05200743C3B5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E709656F10F050A21357C9DE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -47,7 +47,6 @@
 		758095A31AD51D0300780820 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095A71AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758095B11AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		758095B31AD51D0300780820 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		758095B61AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		758095BC1AD51D0300780820 /* WeiBoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiBoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095C11AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		75A303DE1AD591B60033CF65 /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBarcodeViewController.h; sourceTree = "<group>"; };
 		75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBarcodeViewController.m; sourceTree = "<group>"; };
+		75AFACC71AD64D650031B787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPTabBar.h; sourceTree = "<group>"; };
 		75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPTabBar.m; sourceTree = "<group>"; };
 		873E2D08B841AD92E558395E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		758095A61AD51D0300780820 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				758095B31AD51D0300780820 /* Images.xcassets */,
+				75AFACC71AD64D650031B787 /* Images.xcassets */,
 				758095B51AD51D0300780820 /* LaunchScreen.xib */,
 				758095A71AD51D0300780820 /* Info.plist */,
 				758096141AD569A300780820 /* WeiBo_Prefix.pch */,
@@ -528,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75AFACC81AD64D650031B787 /* Images.xcassets in Resources */,
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
@@ -535,7 +536,6 @@
 				758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */,
 				758096061AD55F8600780820 /* Message.storyboard in Resources */,
 				7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */,
-				758095B41AD51D0300780820 /* Images.xcassets in Resources */,
 				75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

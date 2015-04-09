@@ -9,29 +9,51 @@
 #import "ZPBarcodeViewController.h"
 
 @interface ZPBarcodeViewController ()
+//冲击波的向下的约束
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hightConstraint;
+//定时器
+@property (nonatomic, strong) CADisplayLink *timeLink;
 
 @end
 
 @implementation ZPBarcodeViewController
+- (IBAction)closeScanView:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+- (IBAction)photoAlbum:(id)sender {
+}
+
+#pragma mark - UIViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.timeLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)runWave
+{
+    self.hightConstraint.constant -= 2;
+    if (self.hightConstraint.constant <= -200) {
+        self.hightConstraint.constant = 200;
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CADisplayLink *)timeLink
+{
+    if (_timeLink == nil) {
+        _timeLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runWave)];
+    }
+    return _timeLink;
 }
-*/
 
 @end
