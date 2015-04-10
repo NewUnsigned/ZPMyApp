@@ -27,23 +27,26 @@
 ZPButton *_btn;
 - (void)setTitleView
 {
-    _btn = [[ZPButton alloc]initWithFrame:CGRectMake(145, 11, 85, 22)];
+    _btn = [[ZPButton alloc]init];
     _btn.adjustsImageWhenHighlighted = NO;
+    
     self.navigationItem.titleView = _btn;
     [_btn setTitle:@"没落帝国" forState:UIControlStateNormal];
     [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
     
-//    [btn sizeToFit];
+    [_btn sizeToFit];
     [_btn addTarget:self action:@selector(titleViewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self titleViewBtnClicked];
 }
 
 - (void)titleViewBtnClicked
 {
     _btn.selected = !_btn.selected;
-    
-    [self addSmallView];
+    if (!_btn.selected) {
+        [self addSmallView];
+    }
 }
 - (void)addSmallView
 {
@@ -51,23 +54,28 @@ ZPButton *_btn;
     _window.frame = self.view.frame;
     _window.hidden = NO;
     _window.windowLevel = UIWindowLevelAlert + 1;
+    
     UIButton *smallBtn = [[UIButton alloc]init];
     [smallBtn addTarget:self action:@selector(smallBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     smallBtn.frame = _window.frame;
-    smallBtn.alpha = 0.1;
+    smallBtn.alpha = 0.2;
     smallBtn.backgroundColor = [UIColor grayColor];
     [_window addSubview:smallBtn];
+    
     //TODO: frame需要重新设置
     UIImageView *imgView = [[UIImageView alloc]init];
-    CGFloat imgViewX = _btn.x - _btn.width * 0.7;
+    CGFloat imgViewW = self.view.width * 0.5;
+    CGFloat imgViewH = self.view.height * 0.4;
+    CGFloat imgViewX = _btn.x + _btn.width * 0.5 - imgViewW * 0.5;
     CGFloat imgViewY = 54;
-    CGFloat imgViewW = 200;
-    CGFloat imgViewH = 250;
+//    imgView.center = _window.center;
+//    imgView.size = CGSizeMake(imgViewW, imgViewH);
     imgView.frame = CGRectMake(imgViewX, imgViewY, imgViewW, imgViewH);
     imgView.image = [UIImage imageNamed:@"popover_background"];
+    
     ZPSmallViewController *smallVC = [[ZPSmallViewController alloc]init];
     //TODO: frame需要重新设置
-    smallVC.view.frame = CGRectMake(10, 15, 180, 225);
+    smallVC.view.frame = CGRectMake(10, 15, (imgViewW - 20), (imgViewH - 25));
     [imgView addSubview:smallVC.view];
     [_window addSubview:imgView];
     imgView.userInteractionEnabled = YES;
