@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GzW-EN-H7g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GzW-EN-H7g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--条形码-->
@@ -167,9 +167,21 @@
                                     <constraint firstItem="B1a-MZ-zyq" firstAttribute="top" secondItem="Uzx-c3-xVN" secondAttribute="top" id="OaP-tA-N5j"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-45-yk6">
+                                <rect key="frame" x="263" y="415" width="75" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="我的二维码">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bw8-Qk-bXb" kind="show" id="ThX-31-t8K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="CvA-45-yk6" secondAttribute="centerY" constant="-130" id="JUI-Gd-Neu"/>
+                            <constraint firstItem="CvA-45-yk6" firstAttribute="centerX" secondItem="Uzx-c3-xVN" secondAttribute="centerX" id="PsL-Q4-9Nh"/>
                             <constraint firstAttribute="centerX" secondItem="Uzx-c3-xVN" secondAttribute="centerX" id="dIr-KF-3Rq"/>
                             <constraint firstAttribute="centerY" secondItem="Uzx-c3-xVN" secondAttribute="centerY" id="x2j-sf-XHI"/>
                         </constraints>
@@ -221,6 +233,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syw-w4-elO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-673" y="482"/>
+        </scene>
+        <!--Scan Qr View Controller-->
+        <scene sceneID="T2i-E3-J7m">
+            <objects>
+                <viewController id="bw8-Qk-bXb" customClass="ZPScanQrViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E90-xB-dSf"/>
+                        <viewControllerLayoutGuide type="bottom" id="LYP-dS-kse"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YtC-E9-rkI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDk-Cy-hUi">
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8wI-fK-mGp">
+                                        <rect key="frame" x="200" y="20" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="45G-2c-fLU"/>
+                                            <constraint firstAttribute="width" constant="200" id="l6q-Pz-fsU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的二维码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKH-2y-ynW">
+                                        <rect key="frame" x="265" y="235" width="70" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫二维码添加好友" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuM-GM-8f9">
+                                        <rect key="frame" x="230" y="262" width="140" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="QKH-2y-ynW" firstAttribute="top" secondItem="8wI-fK-mGp" secondAttribute="bottom" constant="15" id="6UK-KY-DTt"/>
+                                    <constraint firstAttribute="centerX" secondItem="YuM-GM-8f9" secondAttribute="centerX" id="MkJ-vn-Wl3"/>
+                                    <constraint firstAttribute="centerY" secondItem="8wI-fK-mGp" secondAttribute="centerY" constant="20" id="RyS-qg-6kw"/>
+                                    <constraint firstItem="YuM-GM-8f9" firstAttribute="top" secondItem="QKH-2y-ynW" secondAttribute="bottom" constant="10" id="UiG-HJ-QYV"/>
+                                    <constraint firstAttribute="centerX" secondItem="8wI-fK-mGp" secondAttribute="centerX" id="XEN-Z4-gfz"/>
+                                    <constraint firstAttribute="height" constant="300" id="bFd-YJ-9NX"/>
+                                    <constraint firstItem="8wI-fK-mGp" firstAttribute="top" secondItem="FDk-Cy-hUi" secondAttribute="top" constant="20" id="oRl-8B-xoh"/>
+                                    <constraint firstAttribute="centerX" secondItem="QKH-2y-ynW" secondAttribute="centerX" id="wPG-ec-m3S"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RyS-qg-6kw"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FDk-Cy-hUi" secondAttribute="trailing" id="3ka-pc-1fd"/>
+                            <constraint firstItem="FDk-Cy-hUi" firstAttribute="top" secondItem="YtC-E9-rkI" secondAttribute="top" constant="64" id="fwt-gF-DfV"/>
+                            <constraint firstItem="FDk-Cy-hUi" firstAttribute="leading" secondItem="YtC-E9-rkI" secondAttribute="leading" id="xxO-k9-j3r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myScanQr" destination="8wI-fK-mGp" id="0jC-uk-QYX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGI-k9-fVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342" y="118"/>
         </scene>
     </scenes>
     <resources>

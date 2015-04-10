@@ -8,6 +8,8 @@
 
 #import "ZPHomeTableViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "ZPButton.h"
+
 @interface ZPHomeTableViewController ()
 
 @end
@@ -17,6 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLeftAndRightBarButtonItem];
+    //设置titleView
+    [self setTitleView];
+}
+
+- (void)setTitleView
+{
+    ZPButton *btn = [[ZPButton alloc]initWithFrame:CGRectMake(145, 11, 85, 22)];
+    btn.adjustsImageWhenHighlighted = NO;
+    [btn setTitle:@"没落帝国" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    
+//    [btn sizeToFit];
+    [btn addTarget:self action:@selector(titleViewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = btn;
+}
+- (void)titleViewBtnClicked:(UIButton *)btn
+{
+    btn.selected = !btn.selected;
+    NSLog(@"%@",NSStringFromCGRect(btn.frame));
+    NSLog(@"%s",__func__);
 }
 
 #pragma mark - Table view data source

@@ -25,6 +25,10 @@
 		7580960E1AD55FFA00780820 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960D1AD55FFA00780820 /* Profile.storyboard */; };
 		758096101AD5604700780820 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960F1AD5604700780820 /* Discover.storyboard */; };
 		758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096121AD5606F00780820 /* ZPDisCoverViewController.m */; };
+		759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D1F391AD7B74700447BCC /* ZPButton.m */; };
+		759D1F3D1AD7BE6C00447BCC /* ZPScanQrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D1F3C1AD7BE6C00447BCC /* ZPScanQrViewController.m */; };
+		759D1F3F1AD7BEB200447BCC /* MyScanQr.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759D1F3E1AD7BEB200447BCC /* MyScanQr.storyboard */; };
+		759D1F431AD7C81200447BCC /* ZPSmallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D1F421AD7C81200447BCC /* ZPSmallViewController.m */; };
 		75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */; };
 		75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A303DE1AD591B60033CF65 /* Scan.storyboard */; };
 		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
@@ -76,6 +80,13 @@
 		758096111AD5606F00780820 /* ZPDisCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPDisCoverViewController.h; sourceTree = "<group>"; };
 		758096121AD5606F00780820 /* ZPDisCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPDisCoverViewController.m; sourceTree = "<group>"; };
 		758096141AD569A300780820 /* WeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiBo_Prefix.pch; sourceTree = "<group>"; };
+		759D1F381AD7B74700447BCC /* ZPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPButton.h; sourceTree = "<group>"; };
+		759D1F391AD7B74700447BCC /* ZPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPButton.m; sourceTree = "<group>"; };
+		759D1F3B1AD7BE6C00447BCC /* ZPScanQrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPScanQrViewController.h; sourceTree = "<group>"; };
+		759D1F3C1AD7BE6C00447BCC /* ZPScanQrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPScanQrViewController.m; sourceTree = "<group>"; };
+		759D1F3E1AD7BEB200447BCC /* MyScanQr.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyScanQr.storyboard; sourceTree = "<group>"; };
+		759D1F411AD7C81200447BCC /* ZPSmallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPSmallViewController.h; sourceTree = "<group>"; };
+		759D1F421AD7C81200447BCC /* ZPSmallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPSmallViewController.m; sourceTree = "<group>"; };
 		75A303DB1AD591AA0033CF65 /* ZPScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPScanViewController.h; sourceTree = "<group>"; };
 		75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPScanViewController.m; sourceTree = "<group>"; };
 		75A303DE1AD591B60033CF65 /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
@@ -233,11 +244,14 @@
 		758095D21AD5542F00780820 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				759D1F401AD7C79D00447BCC /* SmallView */,
 				75A303DA1AD5914B0033CF65 /* ScanLife */,
 				75A303D91AD590F30033CF65 /* Friendsearch */,
 				758096001AD5568900780820 /* ZPHomeTableViewController.h */,
 				758096011AD5568900780820 /* ZPHomeTableViewController.m */,
 				758096031AD5569600780820 /* Home.storyboard */,
+				759D1F381AD7B74700447BCC /* ZPButton.h */,
+				759D1F391AD7B74700447BCC /* ZPButton.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -417,6 +431,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		759D1F401AD7C79D00447BCC /* SmallView */ = {
+			isa = PBXGroup;
+			children = (
+				759D1F411AD7C81200447BCC /* ZPSmallViewController.h */,
+				759D1F421AD7C81200447BCC /* ZPSmallViewController.m */,
+			);
+			name = SmallView;
+			sourceTree = "<group>";
+		};
 		75A303D91AD590F30033CF65 /* Friendsearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +455,9 @@
 				75A303DE1AD591B60033CF65 /* Scan.storyboard */,
 				75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */,
 				75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */,
+				759D1F3B1AD7BE6C00447BCC /* ZPScanQrViewController.h */,
+				759D1F3C1AD7BE6C00447BCC /* ZPScanQrViewController.m */,
+				759D1F3E1AD7BEB200447BCC /* MyScanQr.storyboard */,
 			);
 			name = ScanLife;
 			sourceTree = "<group>";
@@ -532,6 +558,7 @@
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
+				759D1F3F1AD7BEB200447BCC /* MyScanQr.storyboard in Resources */,
 				758095B21AD51D0300780820 /* Main.storyboard in Resources */,
 				758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */,
 				758096061AD55F8600780820 /* Message.storyboard in Resources */,
@@ -590,11 +617,14 @@
 				758095EF1AD5542F00780820 /* UIView+Extension.m in Sources */,
 				758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */,
 				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
+				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
+				759D1F431AD7C81200447BCC /* ZPSmallViewController.m in Sources */,
 				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
 				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
 				758095F01AD5542F00780820 /* AppDelegate.m in Sources */,
 				758095F11AD5542F00780820 /* main.m in Sources */,
 				75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */,
+				759D1F3D1AD7BE6C00447BCC /* ZPScanQrViewController.m in Sources */,
 				758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */,
 				758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */,
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,

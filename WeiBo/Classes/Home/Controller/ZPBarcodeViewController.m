@@ -18,6 +18,7 @@
 
 @implementation ZPBarcodeViewController
 - (IBAction)closeScanView:(id)sender {
+    self.hightConstraint.constant = 200;
     [self dismissViewControllerAnimated:YES completion:^{
     }];
 }

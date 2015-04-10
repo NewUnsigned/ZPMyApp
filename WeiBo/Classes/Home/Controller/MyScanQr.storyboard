@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ySm-7r-zY5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Scan Qr View Controller-->
+        <scene sceneID="e1L-TB-3Vo">
+            <objects>
+                <viewController id="ySm-7r-zY5" customClass="ZPScanQrViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VWR-AH-4SW"/>
+                        <viewControllerLayoutGuide type="bottom" id="4js-Hi-frQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9C9-Rv-m4n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndx-Q2-2Nz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W3v-Mi-9N1">
+                                        <rect key="frame" x="200" y="20" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="X4V-c9-xdM"/>
+                                            <constraint firstAttribute="height" constant="200" id="wmV-6w-EKD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的二维码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-Xs-iVB">
+                                        <rect key="frame" x="265" y="235" width="70" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫二维码添加好友" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUZ-qA-AjI">
+                                        <rect key="frame" x="230" y="262" width="140" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="4oZ-rd-6Lg"/>
+                                    <constraint firstItem="IUZ-qA-AjI" firstAttribute="top" secondItem="X9X-Xs-iVB" secondAttribute="bottom" constant="10" id="Icf-sh-uRj"/>
+                                    <constraint firstItem="X9X-Xs-iVB" firstAttribute="top" secondItem="W3v-Mi-9N1" secondAttribute="bottom" constant="15" id="N09-DI-rGe"/>
+                                    <constraint firstAttribute="centerY" secondItem="W3v-Mi-9N1" secondAttribute="centerY" constant="20" id="Twe-hA-fe2"/>
+                                    <constraint firstAttribute="centerX" secondItem="IUZ-qA-AjI" secondAttribute="centerX" id="d9Y-cj-nTV"/>
+                                    <constraint firstAttribute="centerX" secondItem="X9X-Xs-iVB" secondAttribute="centerX" id="ezi-xc-Uhf"/>
+                                    <constraint firstItem="W3v-Mi-9N1" firstAttribute="top" secondItem="ndx-Q2-2Nz" secondAttribute="top" constant="20" id="qmP-q0-h0A"/>
+                                    <constraint firstAttribute="centerX" secondItem="W3v-Mi-9N1" secondAttribute="centerX" id="uvr-1f-dZ6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Twe-hA-fe2"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ndx-Q2-2Nz" secondAttribute="trailing" id="0Vs-Z9-LbV"/>
+                            <constraint firstItem="ndx-Q2-2Nz" firstAttribute="top" secondItem="9C9-Rv-m4n" secondAttribute="top" id="NRE-mB-Gq8"/>
+                            <constraint firstItem="ndx-Q2-2Nz" firstAttribute="leading" secondItem="9C9-Rv-m4n" secondAttribute="leading" id="npy-2A-P5s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myScanQr" destination="W3v-Mi-9N1" id="pOJ-9W-5VT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9T6-co-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="368"/>
+        </scene>
+    </scenes>
+</document>

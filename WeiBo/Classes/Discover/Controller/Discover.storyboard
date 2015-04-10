@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bmA-pb-esl" kind="relationship" relationship="rootViewController" id="NTa-MD-yMn"/>
+                        <segue destination="OMq-m3-PHA" kind="relationship" relationship="rootViewController" id="h6z-Tg-oIa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzT-zn-am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -21,23 +21,31 @@
             <point key="canvasLocation" x="-833" y="166"/>
         </scene>
         <!--发现-->
-        <scene sceneID="tX1-fi-RoV">
+        <scene sceneID="0D5-ZW-XK7">
             <objects>
-                <viewController id="bmA-pb-esl" customClass="ZPDisCoverViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="364-9y-1oz"/>
-                        <viewControllerLayoutGuide type="bottom" id="xKe-jk-jH0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cUR-gN-cSQ">
+                <tableViewController id="OMq-m3-PHA" customClass="ZPDisCoverViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="B5Y-u8-fJi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="发现" id="bfy-nA-yxf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZrM-8v-y5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Orl-FA-Q0W">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Orl-FA-Q0W" id="82i-ou-ndt">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OMq-m3-PHA" id="7gK-Kp-vQj"/>
+                            <outlet property="delegate" destination="OMq-m3-PHA" id="vWd-Eo-bmK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="发现" id="8zz-qB-7dW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jai-V9-2ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138" y="166"/>
+            <point key="canvasLocation" x="-182" y="166"/>
         </scene>
     </scenes>
 </document>

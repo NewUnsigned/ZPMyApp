@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZPDisCoverViewController : UIViewController
+@interface ZPDisCoverViewController : UITableViewController
 
 @end
