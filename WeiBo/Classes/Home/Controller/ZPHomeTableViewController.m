@@ -6,14 +6,16 @@
 //  Copyright (c) 2015年 赵鹏. All rights reserved.
 //
 
-#import "ZPHomeTableViewController.h"
 #import "UIBarButtonItem+Extension.h"
-#import "ZPButton.h"
 #import "UIView+Extension.h"
+#import "ZPButton.h"
+#import "ZPHomeTableViewController.h"
 #import "ZPSmallViewController.h"
+#import "ZPSmallView.h"
 
-@interface ZPHomeTableViewController ()
+@interface ZPHomeTableViewController () <ZPSmallViewDelegate>
 @property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) ZPSmallView *smallBtn;
 @end
 
 @implementation ZPHomeTableViewController
@@ -23,13 +25,18 @@
     [self setLeftAndRightBarButtonItem];
     //设置titleView
     [self setTitleView];
+    
+    // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
+    [self titleViewBtnClicked];
+}
+- (void)test{
+    NSLog(@"%s",__func__);
 }
 ZPButton *_btn;
 - (void)setTitleView
 {
     _btn = [[ZPButton alloc]init];
     _btn.adjustsImageWhenHighlighted = NO;
-    
     self.navigationItem.titleView = _btn;
     [_btn setTitle:@"没落帝国" forState:UIControlStateNormal];
     [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -38,54 +45,56 @@ ZPButton *_btn;
     
     [_btn sizeToFit];
     [_btn addTarget:self action:@selector(titleViewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self titleViewBtnClicked];
+    
 }
 
 - (void)titleViewBtnClicked
 {
-    _btn.selected = !_btn.selected;
-    if (!_btn.selected) {
-        [self addSmallView];
-    }
+    [self.smallBtn test:self.view button:_btn];
+    self.smallBtn.delegate = self;
 }
+- (void)buttonClicked
+{
+    _btn.selected = !_btn.selected;
+}
+
+/*
 - (void)addSmallView
 {
     _window = [[UIWindow alloc]init];
-    _window.frame = self.view.frame;
+    _window.frame = self.view.frame;//view的frame是变化的
     _window.hidden = NO;
     _window.windowLevel = UIWindowLevelAlert + 1;
     
     UIButton *smallBtn = [[UIButton alloc]init];
     [smallBtn addTarget:self action:@selector(smallBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    smallBtn.frame = _window.frame;
+    smallBtn.frame = self.view.frame;
     smallBtn.alpha = 0.2;
     smallBtn.backgroundColor = [UIColor grayColor];
     [_window addSubview:smallBtn];
-    
+
     //TODO: frame需要重新设置
     UIImageView *imgView = [[UIImageView alloc]init];
     CGFloat imgViewW = self.view.width * 0.5;
     CGFloat imgViewH = self.view.height * 0.4;
     CGFloat imgViewX = _btn.x + _btn.width * 0.5 - imgViewW * 0.5;
-    CGFloat imgViewY = 54;
-//    imgView.center = _window.center;
-//    imgView.size = CGSizeMake(imgViewW, imgViewH);
+    CGFloat imgViewY = _btn.y + _btn.height + 20;
     imgView.frame = CGRectMake(imgViewX, imgViewY, imgViewW, imgViewH);
     imgView.image = [UIImage imageNamed:@"popover_background"];
-    
+    imgView.userInteractionEnabled = YES;
+    [_window addSubview:imgView];
+
     ZPSmallViewController *smallVC = [[ZPSmallViewController alloc]init];
-    //TODO: frame需要重新设置
     smallVC.view.frame = CGRectMake(10, 15, (imgViewW - 20), (imgViewH - 25));
     [imgView addSubview:smallVC.view];
-    [_window addSubview:imgView];
-    imgView.userInteractionEnabled = YES;
-    
+
 }
 - (void)smallBtnClicked
 {
     _btn.selected = !_btn.selected;
     _window = nil;
 }
+ */
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
@@ -110,5 +119,13 @@ ZPButton *_btn;
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Scan" bundle:nil];
     UIViewController *vc = sb.instantiateInitialViewController;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (ZPSmallView *)smallBtn
+{
+    if (_smallBtn == nil) {
+        _smallBtn = [[ZPSmallView alloc]init];
+    }
+    return _smallBtn;
 }
 @end
