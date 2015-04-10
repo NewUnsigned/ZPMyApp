@@ -9,9 +9,11 @@
 #import "ZPHomeTableViewController.h"
 #import "UIBarButtonItem+Extension.h"
 #import "ZPButton.h"
+#import "UIView+Extension.h"
+#import "ZPSmallViewController.h"
 
 @interface ZPHomeTableViewController ()
-
+@property (nonatomic, strong) UIWindow *window;
 @end
 
 @implementation ZPHomeTableViewController
@@ -22,27 +24,60 @@
     //设置titleView
     [self setTitleView];
 }
-
+ZPButton *_btn;
 - (void)setTitleView
 {
-    ZPButton *btn = [[ZPButton alloc]initWithFrame:CGRectMake(145, 11, 85, 22)];
-    btn.adjustsImageWhenHighlighted = NO;
-    [btn setTitle:@"没落帝国" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    _btn = [[ZPButton alloc]initWithFrame:CGRectMake(145, 11, 85, 22)];
+    _btn.adjustsImageWhenHighlighted = NO;
+    self.navigationItem.titleView = _btn;
+    [_btn setTitle:@"没落帝国" forState:UIControlStateNormal];
+    [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     
 //    [btn sizeToFit];
-    [btn addTarget:self action:@selector(titleViewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = btn;
-}
-- (void)titleViewBtnClicked:(UIButton *)btn
-{
-    btn.selected = !btn.selected;
-    NSLog(@"%@",NSStringFromCGRect(btn.frame));
-    NSLog(@"%s",__func__);
+    [_btn addTarget:self action:@selector(titleViewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)titleViewBtnClicked
+{
+    _btn.selected = !_btn.selected;
+    
+    [self addSmallView];
+}
+- (void)addSmallView
+{
+    _window = [[UIWindow alloc]init];
+    _window.frame = self.view.frame;
+    _window.hidden = NO;
+    _window.windowLevel = UIWindowLevelAlert + 1;
+    UIButton *smallBtn = [[UIButton alloc]init];
+    [smallBtn addTarget:self action:@selector(smallBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    smallBtn.frame = _window.frame;
+    smallBtn.alpha = 0.1;
+    smallBtn.backgroundColor = [UIColor grayColor];
+    [_window addSubview:smallBtn];
+    //TODO: frame需要重新设置
+    UIImageView *imgView = [[UIImageView alloc]init];
+    CGFloat imgViewX = _btn.x - _btn.width * 0.7;
+    CGFloat imgViewY = 54;
+    CGFloat imgViewW = 200;
+    CGFloat imgViewH = 250;
+    imgView.frame = CGRectMake(imgViewX, imgViewY, imgViewW, imgViewH);
+    imgView.image = [UIImage imageNamed:@"popover_background"];
+    ZPSmallViewController *smallVC = [[ZPSmallViewController alloc]init];
+    //TODO: frame需要重新设置
+    smallVC.view.frame = CGRectMake(10, 15, 180, 225);
+    [imgView addSubview:smallVC.view];
+    [_window addSubview:imgView];
+    imgView.userInteractionEnabled = YES;
+    
+}
+- (void)smallBtnClicked
+{
+    _btn.selected = !_btn.selected;
+    _window = nil;
+}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
