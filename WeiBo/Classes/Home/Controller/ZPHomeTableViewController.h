@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZPHomeTableViewController : UITableViewController
+@interface ZPHomeTableViewController : ZPBasicTableViewController
 
 @end

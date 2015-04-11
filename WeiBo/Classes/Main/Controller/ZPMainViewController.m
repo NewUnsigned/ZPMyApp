@@ -16,8 +16,8 @@
 @implementation ZPMainViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
+[super viewDidLoad];
+    
     [self addChildVc];
 }
 - (void)addChildVc

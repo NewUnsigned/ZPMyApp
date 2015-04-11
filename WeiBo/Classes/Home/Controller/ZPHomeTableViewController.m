@@ -28,10 +28,19 @@
     
     // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
     [self titleViewBtnClicked];
+    
+    [self setLogViewImageAndDegest];
 }
-- (void)test{
-    NSLog(@"%s",__func__);
+
+- (void)setLogViewImageAndDegest
+{
+    self.degestLbl = @"当你关注一些人后,他们发布的最新消息会显示在这里";
+    self.upImg = [UIImage imageNamed:@"visitordiscover_feed_image_house"];
+    self.imagDown = [UIImage imageNamed:@"visitordiscover_feed_image_smallicon"];
+    self.midImg = [UIImage imageNamed:@"visitordiscover_feed_mask_smallicon"];
+    
 }
+
 ZPButton *_btn;
 - (void)setTitleView
 {

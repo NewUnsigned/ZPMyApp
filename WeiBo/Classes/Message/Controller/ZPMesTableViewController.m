@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.degestLbl = @"登录后别人评论你的微博,给你发消息,都会在这里收到通知";
+    self.upImg = [UIImage imageNamed:@"visitordiscover_image_message"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

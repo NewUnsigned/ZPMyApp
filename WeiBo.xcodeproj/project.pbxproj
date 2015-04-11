@@ -35,6 +35,9 @@
 		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
 		75AFACC81AD64D650031B787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AFACC71AD64D650031B787 /* Images.xcassets */; };
 		75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */; };
+		75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003C61AD929C70030D4E2 /* ZPBasicTableViewController.m */; };
+		75D003C91AD929D30030D4E2 /* Basic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D003C81AD929D30030D4E2 /* Basic.storyboard */; };
+		75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */; };
 		C933220AC3C05200743C3B5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E709656F10F050A21357C9DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,11 @@
 		75AFACC71AD64D650031B787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPTabBar.h; sourceTree = "<group>"; };
 		75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPTabBar.m; sourceTree = "<group>"; };
+		75D003C51AD929C70030D4E2 /* ZPBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBasicTableViewController.h; sourceTree = "<group>"; };
+		75D003C61AD929C70030D4E2 /* ZPBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBasicTableViewController.m; sourceTree = "<group>"; };
+		75D003C81AD929D30030D4E2 /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
+		75D003CA1AD92FE40030D4E2 /* ZPLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPLogViewController.h; sourceTree = "<group>"; };
+		75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPLogViewController.m; sourceTree = "<group>"; };
 		873E2D08B841AD92E558395E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B42600F713913C7696FC68A7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E709656F10F050A21357C9DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +346,11 @@
 				758095B01AD51D0300780820 /* Main.storyboard */,
 				758095FA1AD555FB00780820 /* ZPMainViewController.h */,
 				758095FB1AD555FB00780820 /* ZPMainViewController.m */,
+				75D003C51AD929C70030D4E2 /* ZPBasicTableViewController.h */,
+				75D003C61AD929C70030D4E2 /* ZPBasicTableViewController.m */,
+				75D003C81AD929D30030D4E2 /* Basic.storyboard */,
+				75D003CA1AD92FE40030D4E2 /* ZPLogViewController.h */,
+				75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -562,6 +575,7 @@
 				75AFACC81AD64D650031B787 /* Images.xcassets in Resources */,
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
+				75D003C91AD929D30030D4E2 /* Basic.storyboard in Resources */,
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
 				759D1F3F1AD7BEB200447BCC /* MyScanQr.storyboard in Resources */,
 				758095B21AD51D0300780820 /* Main.storyboard in Resources */,
@@ -623,6 +637,7 @@
 				758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */,
 				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
 				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
+				75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */,
 				759D1F431AD7C81200447BCC /* ZPSmallViewController.m in Sources */,
 				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
 				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
@@ -636,6 +651,7 @@
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
 				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
 				75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */,
+				75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

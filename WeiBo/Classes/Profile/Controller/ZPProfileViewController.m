@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.degestLbl = @"登录后你的微博,相册,个人质料会显示在这里,展示给别人";
+    self.upImg = [UIImage imageNamed:@"visitordiscover_image_profile"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jDp-yO-GLW">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Log View Controller-->
+        <scene sceneID="bAt-bi-Omk">
+            <objects>
+                <viewController id="jDp-yO-GLW" customClass="ZPLogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GIy-zv-2or"/>
+                        <viewControllerLayoutGuide type="bottom" id="RQ3-4v-d05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Ct-NU-PzX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3K-0Q-SCT" userLabel="down">
+                                <rect key="frame" x="213" y="73" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="WaZ-UN-NIJ"/>
+                                    <constraint firstAttribute="height" constant="175" id="xEp-D3-scP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq2-bo-ORR">
+                                <rect key="frame" x="213" y="268" width="175" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="9X9-rO-FIV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-FF-kWx">
+                                <rect key="frame" x="213" y="328" width="74" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="sML-Ce-LUP"/>
+                                </constraints>
+                                <state key="normal" title="注册" backgroundImage="common_button_white_disable">
+                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="common_button_white_highlighted"/>
+                                <connections>
+                                    <action selector="registerBtn:" destination="jDp-yO-GLW" eventType="touchUpInside" id="hHj-C3-GJf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JE4-yf-ECb" userLabel="mid">
+                                <rect key="frame" x="213" y="73" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="Ndx-6i-PSG"/>
+                                    <constraint firstAttribute="height" constant="175" id="QDk-Pv-yLk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visitordiscover_feed_image_house" translatesAutoresizingMaskIntoConstraints="NO" id="Bmm-yj-8cX" userLabel="up">
+                                <rect key="frame" x="253" y="147" width="94" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="6fD-3e-obn"/>
+                                    <constraint firstAttribute="height" constant="90" id="gRV-X8-uKm"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhO-XS-VYR">
+                                <rect key="frame" x="307" y="328" width="73" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="j0T-GC-aWY"/>
+                                </constraints>
+                                <state key="normal" title="登录" backgroundImage="common_button_white_disable">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="common_button_white_highlighted"/>
+                                <connections>
+                                    <action selector="logBtn:" destination="jDp-yO-GLW" eventType="touchUpInside" id="kZU-bw-KW9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZhO-XS-VYR" firstAttribute="top" secondItem="JE4-yf-ECb" secondAttribute="bottom" constant="80" id="0Dg-mN-Ran"/>
+                            <constraint firstAttribute="centerX" secondItem="JE4-yf-ECb" secondAttribute="centerX" id="57u-WP-WaO"/>
+                            <constraint firstAttribute="centerX" secondItem="P3K-0Q-SCT" secondAttribute="centerX" id="6dW-vu-GOh"/>
+                            <constraint firstItem="ZhO-XS-VYR" firstAttribute="height" secondItem="Ilo-FF-kWx" secondAttribute="height" id="7q6-5V-eTY"/>
+                            <constraint firstAttribute="centerX" secondItem="Gq2-bo-ORR" secondAttribute="centerX" id="80z-Qw-I1f"/>
+                            <constraint firstItem="ZhO-XS-VYR" firstAttribute="width" secondItem="Ilo-FF-kWx" secondAttribute="width" id="BCp-Pf-cKN"/>
+                            <constraint firstAttribute="centerY" secondItem="P3K-0Q-SCT" secondAttribute="centerY" constant="140" id="DKP-fl-U5z"/>
+                            <constraint firstItem="Gq2-bo-ORR" firstAttribute="top" secondItem="Bmm-yj-8cX" secondAttribute="bottom" constant="31" id="Ko7-08-UIt"/>
+                            <constraint firstAttribute="centerX" secondItem="Bmm-yj-8cX" secondAttribute="centerX" id="Nn4-oh-g3e"/>
+                            <constraint firstItem="JE4-yf-ECb" firstAttribute="trailing" secondItem="ZhO-XS-VYR" secondAttribute="trailing" constant="8" id="nYI-eF-BSj"/>
+                            <constraint firstItem="Ilo-FF-kWx" firstAttribute="top" secondItem="JE4-yf-ECb" secondAttribute="bottom" constant="80" id="t4S-XU-n3Z"/>
+                            <constraint firstAttribute="centerY" secondItem="JE4-yf-ECb" secondAttribute="centerY" constant="140" id="tUd-EE-EmK"/>
+                            <constraint firstItem="ZhO-XS-VYR" firstAttribute="leading" secondItem="Ilo-FF-kWx" secondAttribute="trailing" constant="20" id="uHg-N2-8UL"/>
+                            <constraint firstItem="JE4-yf-ECb" firstAttribute="leading" secondItem="Ilo-FF-kWx" secondAttribute="leading" id="y8V-9C-wgZ"/>
+                            <constraint firstAttribute="centerY" secondItem="Bmm-yj-8cX" secondAttribute="centerY" constant="108" id="zSE-jX-8eK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="degestLabel" destination="Gq2-bo-ORR" id="6eU-X4-o53"/>
+                        <outlet property="imgDown" destination="P3K-0Q-SCT" id="tFx-6Q-WNZ"/>
+                        <outlet property="midImage" destination="JE4-yf-ECb" id="sDF-Jw-f2N"/>
+                        <outlet property="upImg" destination="Bmm-yj-8cX" id="PTi-SI-feI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J09-Uz-B5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-150" y="320"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="common_button_white_disable" width="11" height="9"/>
+        <image name="common_button_white_highlighted" width="11" height="9"/>
+        <image name="visitordiscover_feed_image_house" width="94" height="90"/>
+    </resources>
+</document>
