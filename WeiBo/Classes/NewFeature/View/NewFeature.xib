@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="hvE-8V-GNd" customClass="ZPNewFeatureViewController">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="5Kx-xg-1aL"/>
+                <viewControllerLayoutGuide type="bottom" id="661-ke-D2L"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="4YY-3G-DbA">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_feature_h" translatesAutoresizingMaskIntoConstraints="NO" id="Nqt-sH-qYd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdq-OW-uGC">
+                        <rect key="frame" x="248" y="432" width="105" height="36"/>
+                        <state key="normal" title="立即体验" backgroundImage="new_feature_finish_button">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="new_feature_finish_button_highlighted"/>
+                        <connections>
+                            <action selector="NewFeatureBtn" destination="hvE-8V-GNd" eventType="touchUpInside" id="VNi-7n-9Qv"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="Nqt-sH-qYd" firstAttribute="top" secondItem="4YY-3G-DbA" secondAttribute="top" id="0qF-HK-ebb"/>
+                    <constraint firstAttribute="centerY" secondItem="Tdq-OW-uGC" secondAttribute="centerY" constant="-150" id="Mja-Rl-3Or"/>
+                    <constraint firstAttribute="trailing" secondItem="Nqt-sH-qYd" secondAttribute="trailing" id="MzM-r8-AXe"/>
+                    <constraint firstAttribute="centerX" secondItem="Tdq-OW-uGC" secondAttribute="centerX" id="Pz3-eJ-4B3"/>
+                    <constraint firstAttribute="bottom" secondItem="Nqt-sH-qYd" secondAttribute="bottom" id="TyD-Rn-s3Q"/>
+                    <constraint firstItem="Nqt-sH-qYd" firstAttribute="leading" secondItem="4YY-3G-DbA" secondAttribute="leading" id="kIV-A9-D5h"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="419" y="343"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="new_feature_finish_button" width="105" height="36"/>
+        <image name="new_feature_finish_button_highlighted" width="105" height="36"/>
+        <image name="new_feature_h" width="375" height="667"/>
+    </resources>
+</document>

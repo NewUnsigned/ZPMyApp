@@ -26,6 +26,10 @@
 		758096101AD5604700780820 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7580960F1AD5604700780820 /* Discover.storyboard */; };
 		758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758096121AD5606F00780820 /* ZPDisCoverViewController.m */; };
 		75883FCF1ADA14A100207FC4 /* ZPAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75883FCE1ADA14A100207FC4 /* ZPAuthViewController.m */; };
+		75883FD21ADA6ACE00207FC4 /* ZPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 75883FD11ADA6ACE00207FC4 /* ZPAccount.m */; };
+		75883FD81ADA6C3E00207FC4 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 75883FD71ADA6C3E00207FC4 /* NSString+Extension.m */; };
+		75883FDE1ADA707B00207FC4 /* NewFeature.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75883FDD1ADA707B00207FC4 /* NewFeature.xib */; };
+		75883FE11ADA71CC00207FC4 /* ZPNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75883FE01ADA71CC00207FC4 /* ZPNewFeatureViewController.m */; };
 		759CDBE11AD8241900955C17 /* ZPSmallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759CDBE01AD8241900955C17 /* ZPSmallView.m */; };
 		759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D1F391AD7B74700447BCC /* ZPButton.m */; };
 		759D1F3D1AD7BE6C00447BCC /* ZPScanQrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D1F3C1AD7BE6C00447BCC /* ZPScanQrViewController.m */; };
@@ -88,6 +92,13 @@
 		758096141AD569A300780820 /* WeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiBo_Prefix.pch; sourceTree = "<group>"; };
 		75883FCD1ADA14A100207FC4 /* ZPAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPAuthViewController.h; sourceTree = "<group>"; };
 		75883FCE1ADA14A100207FC4 /* ZPAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPAuthViewController.m; sourceTree = "<group>"; };
+		75883FD01ADA6ACE00207FC4 /* ZPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPAccount.h; sourceTree = "<group>"; };
+		75883FD11ADA6ACE00207FC4 /* ZPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPAccount.m; sourceTree = "<group>"; };
+		75883FD61ADA6C3E00207FC4 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		75883FD71ADA6C3E00207FC4 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		75883FDD1ADA707B00207FC4 /* NewFeature.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFeature.xib; sourceTree = "<group>"; };
+		75883FDF1ADA71CC00207FC4 /* ZPNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPNewFeatureViewController.h; sourceTree = "<group>"; };
+		75883FE01ADA71CC00207FC4 /* ZPNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPNewFeatureViewController.m; sourceTree = "<group>"; };
 		759CDBDF1AD8241900955C17 /* ZPSmallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPSmallView.h; sourceTree = "<group>"; };
 		759CDBE01AD8241900955C17 /* ZPSmallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPSmallView.m; sourceTree = "<group>"; };
 		759D1F381AD7B74700447BCC /* ZPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPButton.h; sourceTree = "<group>"; };
@@ -203,6 +214,7 @@
 		758095CC1AD5542F00780820 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				75883FD91ADA704600207FC4 /* NewFeature */,
 				75F9692A1AD9F41D007FEF04 /* Auth */,
 				758095CD1AD5542F00780820 /* Discover */,
 				758095D11AD5542F00780820 /* Home */,
@@ -338,6 +350,8 @@
 		758095DA1AD5542F00780820 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				75883FD61ADA6C3E00207FC4 /* NSString+Extension.h */,
+				75883FD71ADA6C3E00207FC4 /* NSString+Extension.m */,
 				758095DB1AD5542F00780820 /* UIBarButtonItem+Extension.h */,
 				758095DC1AD5542F00780820 /* UIBarButtonItem+Extension.m */,
 				758095DD1AD5542F00780820 /* UIView+Extension.h */,
@@ -455,6 +469,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		75883FD91ADA704600207FC4 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				75883FDA1ADA704600207FC4 /* Controller */,
+				75883FDB1ADA704600207FC4 /* Model */,
+				75883FDC1ADA704600207FC4 /* View */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		75883FDA1ADA704600207FC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75883FDF1ADA71CC00207FC4 /* ZPNewFeatureViewController.h */,
+				75883FE01ADA71CC00207FC4 /* ZPNewFeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75883FDB1ADA704600207FC4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75883FDC1ADA704600207FC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75883FDD1ADA707B00207FC4 /* NewFeature.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		759D1F401AD7C79D00447BCC /* SmallView */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +556,8 @@
 		75F9692C1AD9F448007FEF04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				75883FD01ADA6ACE00207FC4 /* ZPAccount.h */,
+				75883FD11ADA6ACE00207FC4 /* ZPAccount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -616,6 +666,7 @@
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
 				75D003C91AD929D30030D4E2 /* Basic.storyboard in Resources */,
+				75883FDE1ADA707B00207FC4 /* NewFeature.xib in Resources */,
 				75F9692F1AD9F469007FEF04 /* LogRegister.storyboard in Resources */,
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
 				759D1F3F1AD7BEB200447BCC /* MyScanQr.storyboard in Resources */,
@@ -679,6 +730,7 @@
 				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
 				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
 				75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */,
+				75883FD81ADA6C3E00207FC4 /* NSString+Extension.m in Sources */,
 				759D1F431AD7C81200447BCC /* ZPSmallViewController.m in Sources */,
 				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
 				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
@@ -690,6 +742,8 @@
 				759D1F3D1AD7BE6C00447BCC /* ZPScanQrViewController.m in Sources */,
 				758096131AD5606F00780820 /* ZPDisCoverViewController.m in Sources */,
 				758095F91AD5559200780820 /* ZPLibsTableViewController.m in Sources */,
+				75883FD21ADA6ACE00207FC4 /* ZPAccount.m in Sources */,
+				75883FE11ADA71CC00207FC4 /* ZPNewFeatureViewController.m in Sources */,
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
 				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
 				75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */,
