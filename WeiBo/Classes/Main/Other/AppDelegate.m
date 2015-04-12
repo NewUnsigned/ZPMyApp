@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ZPAccount.h"
+#import "UIWindow+Extension.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //创建window
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    ZPAccount *account = [ZPAccount accountFromSandbox];
+    
+    if (1) {
+        //如果account为空,说明用户第一次授权,则显示默认登录页面
+        [self.window chooseRootViewController];
+    }else{
+        //用户已经授权,显示欢迎界面
+        // 显示默认界面
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = sb.instantiateInitialViewController;
+        self.window.rootViewController = vc;
+    }
+    
+    
     return YES;
 }
 

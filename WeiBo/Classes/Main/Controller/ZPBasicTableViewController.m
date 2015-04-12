@@ -9,6 +9,7 @@
 #import "ZPBasicTableViewController.h"
 #import "ZPLogViewController.h"
 #import "ZPAuthViewController.h"
+#import "ZPAccount.h"
 
 @interface ZPBasicTableViewController () <ZPLogViewControllerDelegate>
 
@@ -18,6 +19,8 @@
 ZPLogViewController *vc;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ZPAccount *count = [ZPAccount accountFromSandbox];
+    if (count == nil) {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Basic" bundle:nil];
     vc = sb.instantiateInitialViewController;
     CGRect tempX = vc.view.frame;
@@ -27,16 +30,17 @@ ZPLogViewController *vc;
     vc.imgDown.image = self.upImg;
     vc.degestLabel.text = self.degestLbl;
     [self.navigationController.view addSubview:vc.view];
+    }
 }
 
 #pragma mark - ZPLogViewControllerDelegate
 - (void)logVC:(ZPLogViewController *)loginVC loginButton:(UIButton *)button
 {
+
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LogRegister" bundle:nil];
     ZPAuthViewController *authVC = sb.instantiateInitialViewController;
-    [self presentViewController:authVC animated:YES completion:^{
-        
-    }];
+    [self presentViewController:authVC animated:YES completion:nil];
+
 }
 - (void)registerVC:(ZPLogViewController *)registerVC registerButton:(UIButton *)button
 {

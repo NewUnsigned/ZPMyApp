@@ -19,7 +19,8 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)NewFeatureBtn {
-    
+    UIStoryboard *newSB = [UIStoryboard storyboardWithName:@"Welcome" bundle:nil];
+    [UIApplication sharedApplication].keyWindow.rootViewController = newSB.instantiateInitialViewController;
 }
 
 - (void)didReceiveMemoryWarning {

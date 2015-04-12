@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bek-vi-r86">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Wel View Controller-->
+        <scene sceneID="Wca-HC-rhu">
+            <objects>
+                <viewController id="bek-vi-r86" customClass="ZPWelViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0YF-Me-XvX"/>
+                        <viewControllerLayoutGuide type="bottom" id="CwW-e7-kvg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sA5-3A-yBr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-60-HFe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00" translatesAutoresizingMaskIntoConstraints="NO" id="xDf-jN-T7g">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="tus-jV-jdH"/>
+                                    <constraint firstAttribute="width" constant="100" id="uA7-Dn-CEg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piW-0O-q4I">
+                                <rect key="frame" x="266" y="380" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="xDf-jN-T7g" secondAttribute="centerX" id="0XR-28-5gV"/>
+                            <constraint firstAttribute="trailing" secondItem="4ce-60-HFe" secondAttribute="trailing" id="2LB-HQ-jGy"/>
+                            <constraint firstItem="4ce-60-HFe" firstAttribute="leading" secondItem="sA5-3A-yBr" secondAttribute="leading" id="2pb-fD-Hat"/>
+                            <constraint firstItem="piW-0O-q4I" firstAttribute="top" secondItem="xDf-jN-T7g" secondAttribute="bottom" constant="30" id="TUM-Ct-I7a"/>
+                            <constraint firstItem="4ce-60-HFe" firstAttribute="top" secondItem="sA5-3A-yBr" secondAttribute="top" id="YrV-ut-EbM"/>
+                            <constraint firstItem="CwW-e7-kvg" firstAttribute="top" secondItem="4ce-60-HFe" secondAttribute="bottom" id="i4Y-8v-9da"/>
+                            <constraint firstAttribute="centerY" secondItem="xDf-jN-T7g" secondAttribute="centerY" id="rG5-O5-fWy"/>
+                            <constraint firstAttribute="centerX" secondItem="piW-0O-q4I" secondAttribute="centerX" id="utO-8K-iwb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="iconImage" destination="xDf-jN-T7g" id="LXw-EO-lIg"/>
+                        <outlet property="imgMidconstraint" destination="rG5-O5-fWy" id="j6R-6s-t2r"/>
+                        <outlet property="welLabel" destination="piW-0O-q4I" id="l5U-9u-E6I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXP-4q-Nbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="369"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="00" width="200" height="200"/>
+        <image name="ad_background" width="320" height="480"/>
+    </resources>
+</document>

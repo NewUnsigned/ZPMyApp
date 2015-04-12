@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #import "ZPAccount.h"
+#import "UIWindow+Extension.h"
 
 #define ZP_REQUEST_TOKEN_BEASE_URL @"https://api.weibo.com/oauth2/authorize"
 #define ZP_CLIENT_ID @"422720824"
@@ -58,6 +59,8 @@
         NSString *code = [request.URL.query substringFromIndex:@"code=".length];
         // 3.利用code换取AccessToken
         [self accessTokenWithCode:code];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window chooseRootViewController];
         return NO;
     }
     return YES;

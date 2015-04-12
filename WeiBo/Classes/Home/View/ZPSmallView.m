@@ -50,10 +50,10 @@ UIButton *_btn;
         [self.delegate buttonClicked];
     }
     // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
-    if (!isHaveValue) {
-        [self smallBtnClicked:nil];
-        isHaveValue = 1;
-    }
+//    if (!isHaveValue) {
+//        [self smallBtnClicked:nil];
+//        isHaveValue = 1;
+//    }
 }
 
 - (void)smallBtnClicked:(UIButton *)btn
