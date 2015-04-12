@@ -8,6 +8,7 @@
 
 #import "ZPBasicTableViewController.h"
 #import "ZPLogViewController.h"
+#import "ZPAuthViewController.h"
 
 @interface ZPBasicTableViewController () <ZPLogViewControllerDelegate>
 
@@ -31,7 +32,11 @@ ZPLogViewController *vc;
 #pragma mark - ZPLogViewControllerDelegate
 - (void)logVC:(ZPLogViewController *)loginVC loginButton:(UIButton *)button
 {
-    NSLog(@"%s",__func__);
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LogRegister" bundle:nil];
+    ZPAuthViewController *authVC = sb.instantiateInitialViewController;
+    [self presentViewController:authVC animated:YES completion:^{
+        
+    }];
 }
 - (void)registerVC:(ZPLogViewController *)registerVC registerButton:(UIButton *)button
 {
