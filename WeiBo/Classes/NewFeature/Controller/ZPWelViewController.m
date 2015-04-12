@@ -9,6 +9,8 @@
 #import "ZPWelViewController.h"
 #import "ZPAccount.h"
 #import <MJExtension.h>
+#import "ZPProfileInfo.h"
+#import <UIImageView+WebCache.h>
 
 @interface ZPWelViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *welLabel;
@@ -21,13 +23,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.iconImage.layer.cornerRadius = 50;
     self.iconImage.layer.masksToBounds = YES;
-    
+    ZPProfileInfo *profile = [ZPProfileInfo pfofileFromSandbox];
+    NSURL *url = [NSURL URLWithString:profile.profile_image_url];
+    if (profile.profile_image_url != nil) {
+        [self.iconImage sd_setImageWithURL:url];
+    }
     [self setIconImageWithURL];
 }
-- (void)setIconImageWithURL
+- (void)setIconImageWithURLk
 {
     ZPAccount *account = [ZPAccount accountFromSandbox];
     NSString *urlString = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@",account.access_token,account.uid];
@@ -35,8 +41,9 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        
-        NSLog(@"%@",di);
+        ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
+        NSLog(@"%@",profile.profile_image_url);
+        [profile save];
     }];
 }
 

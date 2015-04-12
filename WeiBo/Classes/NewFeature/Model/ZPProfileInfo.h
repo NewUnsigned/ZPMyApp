@@ -21,4 +21,7 @@
 @property (nonatomic, copy) NSString *followers_count;
 ///  关注数
 @property (nonatomic, copy) NSString *friends_count;
+
++(instancetype) pfofileFromSandbox;
+- (BOOL)save;
 @end
