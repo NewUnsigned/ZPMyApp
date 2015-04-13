@@ -37,6 +37,7 @@
 		75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */; };
 		75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A303DE1AD591B60033CF65 /* Scan.storyboard */; };
 		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
+		75A8F91E1ADB6CFC0041722D /* ZPStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8F91D1ADB6CFC0041722D /* ZPStatusTableViewCell.m */; };
 		75AFACC81AD64D650031B787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AFACC71AD64D650031B787 /* Images.xcassets */; };
 		75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */; };
 		75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003C61AD929C70030D4E2 /* ZPBasicTableViewController.m */; };
@@ -119,6 +120,8 @@
 		75A303DE1AD591B60033CF65 /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBarcodeViewController.h; sourceTree = "<group>"; };
 		75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBarcodeViewController.m; sourceTree = "<group>"; };
+		75A8F91C1ADB6CFC0041722D /* ZPStatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPStatusTableViewCell.h; sourceTree = "<group>"; };
+		75A8F91D1ADB6CFC0041722D /* ZPStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPStatusTableViewCell.m; sourceTree = "<group>"; };
 		75AFACC71AD64D650031B787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75BBDA7A1AD5726F0051C44E /* ZPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPTabBar.h; sourceTree = "<group>"; };
 		75BBDA7B1AD5726F0051C44E /* ZPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPTabBar.m; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 			children = (
 				759CDBDF1AD8241900955C17 /* ZPSmallView.h */,
 				759CDBE01AD8241900955C17 /* ZPSmallView.m */,
+				75A8F91C1ADB6CFC0041722D /* ZPStatusTableViewCell.h */,
+				75A8F91D1ADB6CFC0041722D /* ZPStatusTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,6 +791,7 @@
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
 				75E93DBD1ADAC3360058D2FE /* ZPPhoto.m in Sources */,
 				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
+				75A8F91E1ADB6CFC0041722D /* ZPStatusTableViewCell.m in Sources */,
 				75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */,
 				75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */,
 			);
