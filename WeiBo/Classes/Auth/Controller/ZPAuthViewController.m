@@ -11,6 +11,8 @@
 #import <SVProgressHUD.h>
 #import "ZPAccount.h"
 #import "UIWindow+Extension.h"
+#import "ZPProfileInfo.h"
+#import <MJExtension.h>
 
 #define ZP_REQUEST_TOKEN_BEASE_URL @"https://api.weibo.com/oauth2/authorize"
 #define ZP_CLIENT_ID @"422720824"
@@ -30,11 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 1.从新浪服务器加载登陆界面(获取未授权的RequestToken)
-//    NSString *str = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@", HM_REQUEST_TOKEN_BEASE_URL, HM_CLIENT_ID, HM_REDIRECT_URL];
-//    NSURL *url = [NSURL URLWithString:str];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [self.loginWebView loadRequest:request];
     [self loginWeiBo];
 }
 - (void)loginWeiBo
@@ -44,7 +41,6 @@
     [SVProgressHUD showWithStatus:@"正在加载,请稍等!"];
     //请求的URL
     NSString *str = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@", ZP_REQUEST_TOKEN_BEASE_URL, ZP_CLIENT_ID, ZP_REDIRECT_URL];
-
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.loginWebView loadRequest:request];
@@ -60,6 +56,7 @@
         // 3.利用code换取AccessToken
         [self accessTokenWithCode:code];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [SVProgressHUD dismiss];
         [window chooseRootViewController];
         return NO;
     }
@@ -82,7 +79,6 @@
     [manager POST:ZP_ACCESSTOKEN_URL parameters:parameter success:^(NSURLSessionDataTask *task, id responseObject) {
         
         ZPAccount *account = [ZPAccount accountWithDict:responseObject];
-        
         [account save];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
