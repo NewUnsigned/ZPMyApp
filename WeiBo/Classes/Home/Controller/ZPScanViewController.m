@@ -24,6 +24,7 @@
 - (IBAction)photoAlbum:(id)sender {
 }
 - (IBAction)closeScanView:(id)sender {
+    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     [self dismissViewControllerAnimated:YES completion:^{
     }];
 }
@@ -67,10 +68,10 @@
     [self.timeLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+//}
 - (void)runWave
 {
     self.hightConstraint.constant -= 2;

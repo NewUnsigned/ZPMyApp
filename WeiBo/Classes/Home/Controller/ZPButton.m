@@ -14,9 +14,10 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    self.titleLabel.x = self.imageView.x;
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);//self.titleLabel.x + self.titleLabel.width;
+    if (self.titleLabel.x > self.imageView.x) {
+        self.titleLabel.x = self.imageView.x;
+        self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);//self.titleLabel.x + self.titleLabel.width;
+    }
 }
 
 @end

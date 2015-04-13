@@ -40,7 +40,7 @@
 //    [self titleViewBtnClicked];
     
     [self setLogViewImageAndDegest];
-    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     //加载微博数据
     [self loadWeiBoInfo];
 }
@@ -52,6 +52,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *parater = [NSMutableDictionary dictionary];
+    if (acount == nil) {
+        return;
+    }
     parater[@"access_token"] = acount.access_token;
     
     [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -61,10 +64,7 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
     }];
-    
-    //创建请求
-    
-    //发送请求,解析返回的数据后刷新微博
+
 }
 - (void)setLogViewImageAndDegest
 {
@@ -72,7 +72,6 @@
     self.upImg = [UIImage imageNamed:@"visitordiscover_feed_image_house"];
     self.imagDown = [UIImage imageNamed:@"visitordiscover_feed_image_smallicon"];
     self.midImg = [UIImage imageNamed:@"visitordiscover_feed_mask_smallicon"];
-    
 }
 
 ZPButton *_btn;
@@ -108,10 +107,27 @@ ZPButton *_btn;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeiBoHome_Cell" forIndexPath:indexPath];
     ZPStatus *statu = self.weiboStatus[indexPath.row];
-    cell.status = statu;
-    return cell;
+    ZPStatusTableViewCell *picCell1 = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell" forIndexPath:indexPath];
+    picCell1.status = statu;
+    return picCell1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZPStatus *statu = self.weiboStatus[indexPath.row];
+    UIFont *font = [UIFont systemFontOfSize:17];
+    NSInteger picNumber = statu.pic_urls.count;
+    CGFloat statuWith = [UIScreen mainScreen].bounds.size.width - 20;
+    NSInteger cellHight = [self sizeOfText:statu.text Font:font maxSize:CGSizeMake(statuWith, 0)].height + 84;
+    
+    return (picNumber % 4) * 100 + cellHight;
+}
+
+- (CGSize)sizeOfText:(NSString *)text Font:(UIFont *)font maxSize:(CGSize)maxSize
+{
+    NSDictionary *attrs = @{NSFontAttributeName : font};
+    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 }
 - (void)setLeftAndRightBarButtonItem
 {

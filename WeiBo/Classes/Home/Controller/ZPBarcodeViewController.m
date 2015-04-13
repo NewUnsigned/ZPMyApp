@@ -18,6 +18,7 @@
 
 @implementation ZPBarcodeViewController
 - (IBAction)closeScanView:(id)sender {
+    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     self.hightConstraint.constant = 200;
     [self dismissViewControllerAnimated:YES completion:^{
     }];
@@ -32,10 +33,10 @@
     [self.timeLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
