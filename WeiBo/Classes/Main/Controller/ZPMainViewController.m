@@ -8,16 +8,16 @@
 
 #import "ZPMainViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "ZPTabBar.h"
 
-@interface ZPMainViewController ()
+@interface ZPMainViewController () <UITabBarDelegate>
 
 @end
 
 @implementation ZPMainViewController
 
 - (void)viewDidLoad {
-[super viewDidLoad];
-    
+    [super viewDidLoad];
     [self addChildVc];
 }
 - (void)addChildVc
@@ -40,6 +40,7 @@
     
     [self addChildViewController:vc];
 }
+
 
 
 @end

@@ -19,6 +19,7 @@
     _picImageName = picImageName;
     NSURL *url = [NSURL URLWithString:picImageName];
     [self.picImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"00"]];
+    
 }
 
 @end

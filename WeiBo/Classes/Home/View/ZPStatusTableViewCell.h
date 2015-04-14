@@ -11,4 +11,6 @@
 
 @interface ZPStatusTableViewCell : UITableViewCell
 @property (nonatomic, strong) ZPStatus *status;
+
+- (CGFloat)countCellRowHight:(ZPStatus *)status;
 @end

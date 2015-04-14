@@ -50,15 +50,15 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-FP-t9F" userLabel="微博正文">
-                                            <rect key="frame" x="10" y="62" width="580" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="580" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-FP-t9F" userLabel="微博正文">
+                                            <rect key="frame" x="10" y="62" width="580" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-bG-gno" userLabel="微博配图">
                                             <rect key="frame" x="10" y="93" width="290" height="90"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="9Cx-kg-H2H"/>
                                                 <constraint firstAttribute="width" constant="290" id="mcL-TT-qe8"/>
@@ -137,6 +137,8 @@
                                     <outlet property="collectionCell" destination="O4p-bG-gno" id="dgu-ra-UYy"/>
                                     <outlet property="iconImage" destination="pEX-3E-tuR" id="pSJ-TF-uhX"/>
                                     <outlet property="nameLabel" destination="SMD-g5-Xra" id="HpB-j8-YPy"/>
+                                    <outlet property="picViewHeight" destination="9Cx-kg-H2H" id="SjY-ln-2QU"/>
+                                    <outlet property="picViewWidth" destination="mcL-TT-qe8" id="dVv-Lf-jX6"/>
                                     <outlet property="statueSource" destination="OLd-cf-jBQ" id="fIi-cF-g0O"/>
                                     <outlet property="statueText" destination="uGg-FP-t9F" id="Uvy-Lr-7wP"/>
                                     <outlet property="timeLabel" destination="9v7-5T-JMi" id="QGN-g4-VDi"/>

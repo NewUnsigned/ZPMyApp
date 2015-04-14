@@ -59,44 +59,13 @@
 }
 - (void)compose
 {
-    [self showPopMenu];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TabBarPlusButtonClicked" object:nil];
 }
 
-- (void)showPopMenu
+- (void)dealloc
 {
-    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
-    MenuItem  *menuItem = [[MenuItem alloc] initWithTitle:@"文字" iconName:@"post_type_bubble_flickr" glowColor:[UIColor grayColor] index:0];
-    [items addObject:menuItem];
-    
-    menuItem = [[MenuItem alloc] initWithTitle:@"相册" iconName:@"post_type_bubble_googleplus" glowColor:[UIColor colorWithRed:0.000 green:0.840 blue:0.000 alpha:1.000] index:0];
-    [items addObject:menuItem];
-    
-    menuItem = [[MenuItem alloc] initWithTitle:@"拍摄" iconName:@"post_type_bubble_instagram" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
-    [items addObject:menuItem];
-    
-    menuItem = [[MenuItem alloc] initWithTitle:@"签到" iconName:@"post_type_bubble_twitter" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
-    [items addObject:menuItem];
-    
-    menuItem = [[MenuItem alloc] initWithTitle:@"点评" iconName:@"post_type_bubble_youtube" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
-    [items addObject:menuItem];
-    
-    menuItem = [[MenuItem alloc] initWithTitle:@"更多" iconName:@"post_type_bubble_facebook" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
-    [items addObject:menuItem];
-//    _popMenu = [[PopMenu alloc] initWithFrame:[UIScreen mainScreen].bounds items:items];
-    
-    if (!_popMenu) {
-        _popMenu = [[PopMenu alloc] initWithFrame:[UIScreen mainScreen].bounds items:items];
-        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
-    }
-    if (_popMenu.isShowed) {
-        return;
-    }
-    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-        NSLog(@"%ld",selectedItem.index);
-    };
-    
-    [_popMenu showMenuAtView:self.window];
-    [_popMenu showMenuAtView:self.window startPoint:CGPointMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 60, CGRectGetHeight([UIScreen mainScreen].bounds)) endPoint:CGPointMake(60, CGRectGetHeight([UIScreen mainScreen].bounds))];
+    NSLog(@"%s",__func__);
+    [[NSNotificationCenter defaultCenter] removeObserver:nil];
 }
 
 @end

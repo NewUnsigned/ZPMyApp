@@ -21,11 +21,16 @@
 #import "ZPUser.h"
 #import "ZPPhoto.h"
 #import "ZPAccount.h"
+#import "ZPTabBar.h"
+#import <PopMenu.h>
+#import "ZPProfileInfo.h"
 
 @interface ZPHomeTableViewController () <ZPSmallViewDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
 @property (nonatomic, strong) NSArray *weiboStatus;
+@property (nonatomic, strong) PopMenu *popMenu;;
+
 @end
 
 @implementation ZPHomeTableViewController
@@ -34,17 +39,64 @@
     [super viewDidLoad];
     [self setLeftAndRightBarButtonItem];
     //设置titleView
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopMenu) name:@"TabBarPlusButtonClicked" object:nil];
+
     [self setTitleView];
-    
     // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
 //    [self titleViewBtnClicked];
-    
     [self setLogViewImageAndDegest];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     //加载微博数据
     [self loadWeiBoInfo];
 }
-
+- (void)showPopMenu
+{
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
+    MenuItem  *menuItem = [[MenuItem alloc] initWithTitle:@"文字" iconName:@"post_type_bubble_flickr" glowColor:[UIColor grayColor] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:@"相册" iconName:@"post_type_bubble_googleplus" glowColor:[UIColor colorWithRed:0.000 green:0.840 blue:0.000 alpha:1.000] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:@"拍摄" iconName:@"post_type_bubble_instagram" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:@"签到" iconName:@"post_type_bubble_twitter" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:@"点评" iconName:@"post_type_bubble_youtube" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    [items addObject:menuItem];
+    
+    menuItem = [[MenuItem alloc] initWithTitle:@"更多" iconName:@"post_type_bubble_facebook" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    [items addObject:menuItem];
+    
+    CGRect screenFrame = [UIScreen mainScreen].bounds;
+    if (!_popMenu) {
+        _popMenu = [[PopMenu alloc] initWithFrame:screenFrame items:items];
+        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+    }
+    if (_popMenu.isShowed) {
+        return;
+    }
+    __block typeof(self) weakSelf = self;
+    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+        if (selectedItem.index == 2) {
+            NSLog(@"%s",__func__);
+            [weakSelf pushView];
+//            [self.navigationController pushViewController:vc animated:YES];
+        }
+    };
+    
+    [_popMenu showMenuAtView:self.navigationController.tabBarController.view];
+    [_popMenu showMenuAtView:self.navigationController.tabBarController.view startPoint:CGPointMake(CGRectGetWidth(screenFrame) - 60, CGRectGetHeight(screenFrame)) endPoint:CGPointMake(60, CGRectGetHeight(screenFrame))];
+}
+- (void)pushView
+{
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.frame = [UIScreen mainScreen].bounds;
+    vc.view.backgroundColor = [UIColor orangeColor];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 - (void)loadWeiBoInfo
 {
     //取出请求需要的参数
@@ -69,25 +121,29 @@
 - (void)setLogViewImageAndDegest
 {
     self.degestLbl = @"当你关注一些人后,他们发布的最新消息会显示在这里";
-    self.upImg = [UIImage imageNamed:@"visitordiscover_feed_image_house"];
-    self.imagDown = [UIImage imageNamed:@"visitordiscover_feed_image_smallicon"];
-    self.midImg = [UIImage imageNamed:@"visitordiscover_feed_mask_smallicon"];
+    self.upImg     = [UIImage imageNamed:@"visitordiscover_feed_image_house"];
+    self.imagDown  = [UIImage imageNamed:@"visitordiscover_feed_image_smallicon"];
+    self.midImg    = [UIImage imageNamed:@"visitordiscover_feed_mask_smallicon"];
 }
 
 ZPButton *_btn;
 - (void)setTitleView
 {
+    ZPProfileInfo *profile = [ZPProfileInfo pfofileFromSandbox];
+    NSString *userName = profile.screen_name;
+    if (userName == nil) {
+        userName = @"用户名";
+    }
     _btn = [[ZPButton alloc]init];
     _btn.adjustsImageWhenHighlighted = NO;
     self.navigationItem.titleView = _btn;
-    [_btn setTitle:@"没落帝国" forState:UIControlStateNormal];
+    [_btn setTitle:userName forState:UIControlStateNormal];
     [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [_btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     
     [_btn sizeToFit];
     [_btn addTarget:self action:@selector(titleViewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (void)titleViewBtnClicked
@@ -115,13 +171,11 @@ ZPButton *_btn;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZPStatus *statu = self.weiboStatus[indexPath.row];
-    UIFont *font = [UIFont systemFontOfSize:17];
-    NSInteger picNumber = statu.pic_urls.count;
-    CGFloat statuWith = [UIScreen mainScreen].bounds.size.width - 20;
-    NSInteger cellHight = [self sizeOfText:statu.text Font:font maxSize:CGSizeMake(statuWith, 0)].height + 84;
     
-    return (picNumber % 4) * 100 + cellHight;
+    ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell"];
+    ZPStatus *statue = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell"];
+    
+    return [cell countCellRowHight:statue];//(picNumber % 4) * 100 + cellHight;
 }
 
 - (CGSize)sizeOfText:(NSString *)text Font:(UIFont *)font maxSize:(CGSize)maxSize
@@ -137,6 +191,7 @@ ZPButton *_btn;
 -(void)leftBarButtonItemClicked
 {
     NSLog(@"%s",__func__);
+
 }
 - (void)rightBarButtomItemClicked
 {

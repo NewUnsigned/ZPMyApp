@@ -14,7 +14,10 @@
 #import "UIView+Extension.h"
 #import "ZPPictureCollectionViewCell.h"
 @interface ZPStatusTableViewCell () <UICollectionViewDelegate,UICollectionViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *colViewFlowLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint         *picViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint         *picViewWidth;
 @property (weak, nonatomic) IBOutlet UICollectionView           *collectionCell;
 @property (weak, nonatomic) IBOutlet UIImageView                *iconImage;
 @property (weak, nonatomic) IBOutlet UIImageView                *vipImage;
@@ -48,9 +51,6 @@
     }
     ZPPictureCollectionViewCell *picCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"Picture_Cell" forIndexPath:indexPath];
     picCell1.picImageName = picname.thumbnail_pic;
-    CGRect colFrame = self.collectionCell.frame;
-    colFrame.size.height = ((self.picArr.count ) / 3 + 1) * 100;
-    self.collectionCell.frame = colFrame;
     return picCell1;
 }
 
@@ -66,12 +66,36 @@
     self.statueText.text = status.text;
     self.timeLabel.text = status.created_at;
     self.picArr = status.pic_urls;
-    if (self.picArr.count == 0) {
-        self.collectionCell.hidden = YES;
-    }else{
-        self.collectionCell.hidden = NO;
+    self.picViewHeight.constant = [self reSetPicViewSize:self.picArr.count].height;
+}
+- (CGSize)reSetPicViewSize:(NSUInteger)count
+{
+    if (count == 0) {
+        return CGSizeZero;
     }
-
+    NSUInteger hang = count/3 + 1;
+    NSInteger lie = 3;
+    
+    if (count == 3) {
+        hang = 1;
+    }
+    if (count == 6) {
+        hang = 2;
+    }
+    if (count == 9) {
+        hang = 3;
+    }
+    lie = count < 3 ? count : 3;
+    
+    CGFloat picW = lie * 90 + (lie - 1) * 10;
+    CGFloat picH = hang * 90 + (hang - 1) * 10;
+    NSLog(@"%ld %f %f",count,picW,picH);
+    return CGSizeMake(picW,picH);
+    
+}
+- (CGFloat)countCellRowHight:(ZPStatus *)status
+{
+    return 200;
 }
 - (NSArray *)picArr
 {
