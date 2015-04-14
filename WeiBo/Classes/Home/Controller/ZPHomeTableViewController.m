@@ -173,9 +173,13 @@ ZPButton *_btn;
 {
     
     ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell"];
-    ZPStatus *statue = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell"];
-    
+    ZPStatus *statue = self.weiboStatus[indexPath.row];
     return [cell countCellRowHight:statue];//(picNumber % 4) * 100 + cellHight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
 }
 
 - (CGSize)sizeOfText:(NSString *)text Font:(UIFont *)font maxSize:(CGSize)maxSize
