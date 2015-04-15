@@ -13,4 +13,6 @@
 @property (nonatomic, strong) ZPStatus *status;
 
 - (CGFloat)countCellRowHight:(ZPStatus *)status;
+
++ (NSString *)indentifierWithStatus:(ZPStatus *)status;
 @end

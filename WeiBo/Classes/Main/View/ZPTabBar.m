@@ -15,6 +15,10 @@
 @end
 
 @implementation ZPTabBar
+- (void)awakeFromNib
+{
+    NSLog(@"%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
+}
 
 - (void)layoutSubviews{
     [super layoutSubviews];

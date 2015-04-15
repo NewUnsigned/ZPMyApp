@@ -45,7 +45,7 @@
     // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
 //    [self titleViewBtnClicked];
     [self setLogViewImageAndDegest];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     //加载微博数据
     [self loadWeiBoInfo];
 }
@@ -164,7 +164,7 @@ ZPButton *_btn;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZPStatus *statu = self.weiboStatus[indexPath.row];
-    ZPStatusTableViewCell *picCell1 = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell" forIndexPath:indexPath];
+    ZPStatusTableViewCell *picCell1 = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statu] forIndexPath:indexPath];
     picCell1.status = statu;
     return picCell1;
 }
@@ -172,8 +172,8 @@ ZPButton *_btn;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Wei_Cell"];
     ZPStatus *statue = self.weiboStatus[indexPath.row];
+    ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statue]];
     return [cell countCellRowHight:statue];//(picNumber % 4) * 100 + cellHight;
 }
 

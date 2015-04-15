@@ -24,7 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setIconImageWithURL];
+ [self setIconImageWithURL];
+
     self.iconImage.layer.cornerRadius = 50;
     self.iconImage.layer.masksToBounds = YES;
     ZPProfileInfo *profile = [ZPProfileInfo pfofileFromSandbox];

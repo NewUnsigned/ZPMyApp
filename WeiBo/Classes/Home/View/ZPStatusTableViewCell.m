@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIView                     *bottomView;
 @property (weak, nonatomic) IBOutlet UICollectionView *oringinView;
 @property (weak, nonatomic) IBOutlet UILabel *forwardStatue;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backGroundHeight;
+@property (weak, nonatomic) IBOutlet UICollectionView *forwardView;
 @property (nonatomic, strong) NSArray *picArr;
 @property (nonatomic,   copy) NSString *picName;
 @end
@@ -35,10 +37,8 @@
 @implementation ZPStatusTableViewCell
 - (void)awakeFromNib
 {
-//    _colViewFlowLayout.minimumLineSpacing = 10;
-//    _colViewFlowLayout.minimumInteritemSpacing = 10;
-//    _colViewFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.statueText.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
+    self.forwardStatue.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -47,10 +47,11 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ZPPhoto *picname;
-    if (self.picArr.count != 0 &&self.picArr != nil ) {
+    if (self.picArr.count != 0 && self.picArr != nil ) {
         picname = self.picArr[indexPath.item];
     }
     ZPPictureCollectionViewCell *picCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"Picture_Cell" forIndexPath:indexPath];
+  
     picCell1.picImageName = picname.thumbnail_pic;
     return picCell1;
 }
@@ -66,17 +67,26 @@
     self.statueSource.text = status.source;
     self.statueText.text = status.text;
     self.timeLabel.text = status.created_at;
+    //设置转发微博
     self.picArr = status.pic_urls;
+    if (status.retweeted_status != nil) {
+        self.forwardStatue.text = status.retweeted_status.text;
+        self.picArr = status.retweeted_status.pic_urls;
+    }
     CGSize picViewSize = [self reSetPicViewSize];
     self.picViewHeight.constant = picViewSize.height;
     self.picViewWidth.constant = picViewSize.width;
     
     [self.oringinView reloadData];
+    [self.forwardView reloadData];
 }
 - (CGSize)reSetPicViewSize
 {
     // 1.处理没有配图的情况
     NSUInteger count = self.status.pic_urls.count;
+    if (self.status.retweeted_status != nil) {
+        count = self.status.retweeted_status.pic_urls.count;
+    }
     if (count == 0) {
         return CGSizeZero;
     }
@@ -130,7 +140,19 @@
 {
     self.status = status;
     [self layoutIfNeeded];
-    return CGRectGetMaxY(self.bottomView.frame);
+    CGFloat rowHight = CGRectGetMaxY(self.bottomView.frame);
+//    self.backGroundHeight.constant = rowHight;
+    return rowHight - 2;
+}
+///  根据有无转发微博,返回重用cell的标识符
+///
+///  @return 返回重用cell的标识符
++ (NSString *)indentifierWithStatus:(ZPStatus *)status
+{
+    if (status.retweeted_status == nil) {
+        return @"Wei_Cell";
+    }
+    return @"forwardWei_Cell";
 }
 - (NSArray *)picArr
 {
