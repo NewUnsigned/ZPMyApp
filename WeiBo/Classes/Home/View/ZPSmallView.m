@@ -32,7 +32,6 @@ UIButton *_btn;
     smallBtn.backgroundColor = [UIColor grayColor];
     [_window addSubview:smallBtn];
 
-    //TODO: frame需要重新设置
     UIImageView *imgView = [[UIImageView alloc]init];
     CGFloat imgViewW = view.width * 0.5;
     CGFloat imgViewH = view.height * 0.4;
@@ -49,11 +48,6 @@ UIButton *_btn;
     if ([self.delegate respondsToSelector:@selector(buttonClicked)]) {
         [self.delegate buttonClicked];
     }
-    // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
-//    if (!isHaveValue) {
-//        [self smallBtnClicked:nil];
-//        isHaveValue = 1;
-//    }
 }
 
 - (void)smallBtnClicked:(UIButton *)btn

@@ -28,7 +28,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-g5-Xra" userLabel="名字">
                                             <rect key="frame" x="64" y="10" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-np-HIW" userLabel="vip">
@@ -53,7 +53,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="580" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-FP-t9F" userLabel="微博正文">
                                             <rect key="frame" x="10" y="62" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-bG-gno" userLabel="微博配图">
@@ -225,7 +225,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba1-ls-boW" userLabel="名字">
                                             <rect key="frame" x="64" y="10" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oH-ah-cL3" userLabel="vip">
@@ -248,16 +248,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMX-up-kRN">
-                                            <rect key="frame" x="0.0" y="91" width="600" height="119"/>
+                                            <rect key="frame" x="0.0" y="91" width="600" height="139"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iy-db-RhY" userLabel="转发的微博">
-                                                    <rect key="frame" x="8" y="8" width="42" height="21"/>
+                                                    <rect key="frame" x="10" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J9P-4G-rMu" userLabel="微博配图">
-                                                    <rect key="frame" x="8" y="29" width="290" height="90"/>
+                                                    <rect key="frame" x="10" y="39" width="290" height="90"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="WzW-rF-m9d"/>
@@ -294,23 +294,23 @@
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="3Iy-db-RhY" firstAttribute="top" secondItem="wMX-up-kRN" secondAttribute="top" constant="8" id="5MZ-1w-iGg"/>
-                                                <constraint firstItem="3Iy-db-RhY" firstAttribute="leading" secondItem="wMX-up-kRN" secondAttribute="leading" constant="8" id="fXm-21-WDi"/>
-                                                <constraint firstAttribute="bottom" secondItem="J9P-4G-rMu" secondAttribute="bottom" id="oeq-7c-fcf"/>
-                                                <constraint firstItem="J9P-4G-rMu" firstAttribute="leading" secondItem="wMX-up-kRN" secondAttribute="leading" constant="8" id="tDb-a4-m12"/>
-                                                <constraint firstItem="J9P-4G-rMu" firstAttribute="top" secondItem="3Iy-db-RhY" secondAttribute="bottom" id="tww-3Z-tbn"/>
+                                                <constraint firstItem="3Iy-db-RhY" firstAttribute="leading" secondItem="wMX-up-kRN" secondAttribute="leading" constant="10" id="fXm-21-WDi"/>
+                                                <constraint firstAttribute="bottom" secondItem="J9P-4G-rMu" secondAttribute="bottom" constant="10" id="oeq-7c-fcf"/>
+                                                <constraint firstItem="J9P-4G-rMu" firstAttribute="leading" secondItem="wMX-up-kRN" secondAttribute="leading" constant="10" id="tDb-a4-m12"/>
+                                                <constraint firstItem="J9P-4G-rMu" firstAttribute="top" secondItem="3Iy-db-RhY" secondAttribute="bottom" constant="10" id="tww-3Z-tbn"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="580" translatesAutoresizingMaskIntoConstraints="NO" id="y9V-NQ-Oj0" userLabel="微博正文">
                                             <rect key="frame" x="10" y="62" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDz-RN-xwE" userLabel="底部工具条">
-                                            <rect key="frame" x="0.0" y="210" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="230" width="600" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7N-ff-kDk">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>

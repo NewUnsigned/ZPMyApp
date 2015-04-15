@@ -70,7 +70,8 @@
     //设置转发微博
     self.picArr = status.pic_urls;
     if (status.retweeted_status != nil) {
-        self.forwardStatue.text = status.retweeted_status.text;
+        NSString *forwardText = [NSString stringWithFormat:@"@%@: %@",status.retweeted_status.user.name ,status.retweeted_status.text];
+        self.forwardStatue.text = forwardText;
         self.picArr = status.retweeted_status.pic_urls;
     }
     CGSize picViewSize = [self reSetPicViewSize];
