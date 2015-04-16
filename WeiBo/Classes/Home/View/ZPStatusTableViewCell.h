@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 @class ZPStatus;
-
+typedef void(^selectedCellBlock)(NSIndexPath *path);
 @interface ZPStatusTableViewCell : UITableViewCell
 @property (nonatomic, strong) ZPStatus *status;
 
 - (CGFloat)countCellRowHight:(ZPStatus *)status;
 
 + (NSString *)indentifierWithStatus:(ZPStatus *)status;
+
+//点击cell弹出对应的大图
+@property (nonatomic, copy) selectedCellBlock cellIndexPatnSelected;
 @end

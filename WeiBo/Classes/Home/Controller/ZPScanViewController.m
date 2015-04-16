@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //MARK: 模拟器不能使用二维码扫描功能
-    [self addScanDevice];
+//    [self addScanDevice];
 }
 //MARK:获取扫描设备实现扫描功能
 - (void)addScanDevice

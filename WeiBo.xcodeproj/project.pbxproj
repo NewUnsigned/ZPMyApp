@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751F62FF1ADF5630004C0076 /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751F62FE1ADF5630004C0076 /* Browser.storyboard */; };
 		758095B21AD51D0300780820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758095B01AD51D0300780820 /* Main.storyboard */; };
 		758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758095B51AD51D0300780820 /* LaunchScreen.xib */; };
 		758095C31AD51D0300780820 /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095C21AD51D0300780820 /* WeiBoTests.m */; };
@@ -37,6 +38,8 @@
 		75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303DC1AD591AA0033CF65 /* ZPScanViewController.m */; };
 		75A303DF1AD591B60033CF65 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A303DE1AD591B60033CF65 /* Scan.storyboard */; };
 		75A303E21AD592E20033CF65 /* ZPBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */; };
+		75A6AE421ADF8AE60068477B /* ZPBroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A6AE411ADF8AE60068477B /* ZPBroViewController.m */; };
+		75A6AE451ADF97CF0068477B /* ZPBroCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A6AE441ADF97CF0068477B /* ZPBroCollectionViewCell.m */; };
 		75A8F91E1ADB6CFC0041722D /* ZPStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8F91D1ADB6CFC0041722D /* ZPStatusTableViewCell.m */; };
 		75A8F9211ADB97FF0041722D /* NSDate+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8F9201ADB97FF0041722D /* NSDate+NJ.m */; };
 		75A8F9271ADB9E210041722D /* ZPPictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8F9261ADB9E210041722D /* ZPPictureCollectionViewCell.m */; };
@@ -68,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		751F62FE1ADF5630004C0076 /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
 		758095A31AD51D0300780820 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095A71AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758095B11AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +126,10 @@
 		75A303DE1AD591B60033CF65 /* Scan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
 		75A303E01AD592E20033CF65 /* ZPBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBarcodeViewController.h; sourceTree = "<group>"; };
 		75A303E11AD592E20033CF65 /* ZPBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBarcodeViewController.m; sourceTree = "<group>"; };
+		75A6AE401ADF8AE60068477B /* ZPBroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBroViewController.h; sourceTree = "<group>"; };
+		75A6AE411ADF8AE60068477B /* ZPBroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBroViewController.m; sourceTree = "<group>"; };
+		75A6AE431ADF97CF0068477B /* ZPBroCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPBroCollectionViewCell.h; sourceTree = "<group>"; };
+		75A6AE441ADF97CF0068477B /* ZPBroCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPBroCollectionViewCell.m; sourceTree = "<group>"; };
 		75A8F91C1ADB6CFC0041722D /* ZPStatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPStatusTableViewCell.h; sourceTree = "<group>"; };
 		75A8F91D1ADB6CFC0041722D /* ZPStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPStatusTableViewCell.m; sourceTree = "<group>"; };
 		75A8F91F1ADB97FF0041722D /* NSDate+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NJ.h"; sourceTree = "<group>"; };
@@ -181,6 +189,18 @@
 				E709656F10F050A21357C9DE /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		751F62FA1ADF5603004C0076 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				751F62FE1ADF5630004C0076 /* Browser.storyboard */,
+				75A6AE401ADF8AE60068477B /* ZPBroViewController.h */,
+				75A6AE411ADF8AE60068477B /* ZPBroViewController.m */,
+				75A6AE431ADF97CF0068477B /* ZPBroCollectionViewCell.h */,
+				75A6AE441ADF97CF0068477B /* ZPBroCollectionViewCell.m */,
+			);
+			name = Browser;
 			sourceTree = "<group>";
 		};
 		7580959A1AD51D0300780820 = {
@@ -302,6 +322,7 @@
 		758095D21AD5542F00780820 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				751F62FA1ADF5603004C0076 /* Browser */,
 				759D1F401AD7C79D00447BCC /* SmallView */,
 				75A303DA1AD5914B0033CF65 /* ScanLife */,
 				75A303D91AD590F30033CF65 /* Friendsearch */,
@@ -719,6 +740,7 @@
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
 				759D1F3F1AD7BEB200447BCC /* MyScanQr.storyboard in Resources */,
 				758095B21AD51D0300780820 /* Main.storyboard in Resources */,
+				751F62FF1ADF5630004C0076 /* Browser.storyboard in Resources */,
 				75E93DB11ADAA99B0058D2FE /* NewFeature.storyboard in Resources */,
 				758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */,
 				758096061AD55F8600780820 /* Message.storyboard in Resources */,
@@ -802,9 +824,11 @@
 				75A8F9211ADB97FF0041722D /* NSDate+NJ.m in Sources */,
 				758095FC1AD555FB00780820 /* ZPMainViewController.m in Sources */,
 				75E93DBD1ADAC3360058D2FE /* ZPPhoto.m in Sources */,
+				75A6AE451ADF97CF0068477B /* ZPBroCollectionViewCell.m in Sources */,
 				75BBDA7C1AD5726F0051C44E /* ZPTabBar.m in Sources */,
 				75A8F91E1ADB6CFC0041722D /* ZPStatusTableViewCell.m in Sources */,
 				75A303DD1AD591AA0033CF65 /* ZPScanViewController.m in Sources */,
+				75A6AE421ADF8AE60068477B /* ZPBroViewController.m in Sources */,
 				75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

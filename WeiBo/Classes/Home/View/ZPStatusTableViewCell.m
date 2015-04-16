@@ -41,6 +41,15 @@
     self.forwardStatue.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
 }
 
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    if (self.cellIndexPatnSelected != nil) {
+        self.cellIndexPatnSelected(indexPath);
+    
+}
+
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.picArr.count;

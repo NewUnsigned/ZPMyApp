@@ -24,12 +24,15 @@
 #import "ZPTabBar.h"
 #import <PopMenu.h>
 #import "ZPProfileInfo.h"
+#import "ZPBroViewController.h"
 
 @interface ZPHomeTableViewController () <ZPSmallViewDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
 @property (nonatomic, strong) NSArray *weiboStatus;
 @property (nonatomic, strong) PopMenu *popMenu;;
+@property (nonatomic, strong)
+NSCache *rowHightCache;
 
 @end
 
@@ -166,6 +169,14 @@ ZPButton *_btn;
     ZPStatus *statu = self.weiboStatus[indexPath.row];
     ZPStatusTableViewCell *picCell1 = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statu] forIndexPath:indexPath];
     picCell1.status = statu;
+    __weak typeof(self) weakSelf = self;
+    picCell1.cellIndexPatnSelected = ^(NSIndexPath *path){
+        UIStoryboard *browserSB = [UIStoryboard storyboardWithName:@"Browser" bundle:nil];
+        ZPBroViewController *browserVC = browserSB.instantiateInitialViewController;
+        browserVC.urlStrArr = statu.pic_urls;
+        browserVC.indexPath = path;
+        [weakSelf.navigationController presentViewController:browserVC animated:YES completion:nil];
+    };
     return picCell1;
 }
 
@@ -174,7 +185,17 @@ ZPButton *_btn;
     
     ZPStatus *statue = self.weiboStatus[indexPath.row];
     ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statue]];
-    return [cell countCellRowHight:statue];//(picNumber % 4) * 100 + cellHight;
+    
+    NSNumber *rowHight = [self.rowHightCache objectForKey:statue.idstr];
+    
+    if (rowHight == nil) {
+        //使用NSCache将计算的高度缓存起来
+        NSUInteger rowHightNum = [cell countCellRowHight:statue];
+        rowHight = @(rowHightNum);
+        [_rowHightCache setObject:rowHight forKey:statue.idstr];
+    }
+    
+    return rowHight.integerValue;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -202,6 +223,13 @@ ZPButton *_btn;
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Scan" bundle:nil];
     UIViewController *vc = sb.instantiateInitialViewController;
     [self presentViewController:vc animated:YES completion:nil];
+}
+- (NSCache *)rowHightCache
+{
+    if (_rowHightCache == nil) {
+        _rowHightCache = [[NSCache alloc]init];
+    }
+    return _rowHightCache;
 }
 
 - (ZPSmallView *)smallBtn
