@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZPTabBar;
+@protocol ZPTabBarCustomDelegate<NSObject>
+
+- (void)tabbar:(ZPTabBar *)tabbar plusButtonClicked:(UIButton *)plusBtn;
+
+@end
 
 @interface ZPTabBar : UITabBar
+
+@property (nonatomic, weak) id<ZPTabBarCustomDelegate> customDelegate;
 
 @end

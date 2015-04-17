@@ -26,7 +26,7 @@
 #import "ZPProfileInfo.h"
 #import "ZPBroViewController.h"
 
-@interface ZPHomeTableViewController () <ZPSmallViewDelegate>
+@interface ZPHomeTableViewController () <ZPSmallViewDelegate,ZPTabBarCustomDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
 @property (nonatomic, strong) NSArray *weiboStatus;
@@ -42,16 +42,18 @@ NSCache *rowHightCache;
     [super viewDidLoad];
     [self setLeftAndRightBarButtonItem];
     //设置titleView
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPopMenu) name:@"TabBarPlusButtonClicked" object:nil];
-
+    ZPTabBar *customTabbar = (ZPTabBar *) self.tabBarController.tabBar;
+    customTabbar.customDelegate = self;
     [self setTitleView];
-    // 因为进入程序后首页标题按钮位置不对,需要点击一次位置才正确,因此在进入程序的时候模拟了一次点击
-//    [self titleViewBtnClicked];
     [self setLogViewImageAndDegest];
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     //加载微博数据
     [self loadWeiBoInfo];
 }
+- (void)tabbar:(ZPTabBar *)tabbar plusButtonClicked:(UIButton *)plusBtn
+{
+    [self showPopMenu];
+}
+//MARK: 发送微博 底部加号按钮
 - (void)showPopMenu
 {
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
@@ -83,10 +85,8 @@ NSCache *rowHightCache;
     }
     __block typeof(self) weakSelf = self;
     _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-        if (selectedItem.index == 2) {
-            NSLog(@"%s",__func__);
+        if (selectedItem.index == 0) {
             [weakSelf pushView];
-//            [self.navigationController pushViewController:vc animated:YES];
         }
     };
     
@@ -95,11 +95,10 @@ NSCache *rowHightCache;
 }
 - (void)pushView
 {
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.frame = [UIScreen mainScreen].bounds;
-    vc.view.backgroundColor = [UIColor orangeColor];
-    [self presentViewController:vc animated:YES completion:nil];
+    //发送微博  控制器
+    
 }
+//MARK: 下载微博数据
 - (void)loadWeiBoInfo
 {
     //取出请求需要的参数
@@ -148,16 +147,12 @@ ZPButton *_btn;
     [_btn sizeToFit];
     [_btn addTarget:self action:@selector(titleViewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 }
-
+//MARK: 顶部用户名标题
 - (void)titleViewBtnClicked
 {
     _btn.selected = YES;
     [self.smallBtn test:self.view button:_btn];
     self.smallBtn.delegate = self;
-}
-- (void)buttonClicked
-{
-//    _btn.selected = !_btn.selected;
 }
 
 #pragma mark - Table view data source
@@ -179,6 +174,7 @@ ZPButton *_btn;
     };
     return picCell1;
 }
+#pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -208,6 +204,8 @@ ZPButton *_btn;
     NSDictionary *attrs = @{NSFontAttributeName : font};
     return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 }
+//MARK: 左右item
+
 - (void)setLeftAndRightBarButtonItem
 {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNorImage:@"navigationbar_friendsearch" higImage:@"navigationbar_friendsearch_highlighted" title:nil target:self action:@selector(leftBarButtonItemClicked)];
@@ -224,6 +222,7 @@ ZPButton *_btn;
     UIViewController *vc = sb.instantiateInitialViewController;
     [self presentViewController:vc animated:YES completion:nil];
 }
+//MARK: 懒加载函数
 - (NSCache *)rowHightCache
 {
     if (_rowHightCache == nil) {

@@ -45,7 +45,7 @@
     if (!_plusBtn) {
         // 1.创建加号按钮
         _plusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_plusBtn addTarget:self action:@selector(compose) forControlEvents:UIControlEventTouchUpInside];
+        [_plusBtn addTarget:self action:@selector(compose:) forControlEvents:UIControlEventTouchUpInside];
         // 2.设置按钮的image图片
         [_plusBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [_plusBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
@@ -57,15 +57,11 @@
     }
     return _plusBtn;
 }
-- (void)compose
+- (void)compose:(UIButton *)button
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TabBarPlusButtonClicked" object:nil];
-}
-
-- (void)dealloc
-{
-    NSLog(@"%s",__func__);
-    [[NSNotificationCenter defaultCenter] removeObserver:nil];
+    if ([self.customDelegate respondsToSelector:@selector(tabbar:plusButtonClicked:)]) {
+        [self.customDelegate tabbar:self plusButtonClicked:button];
+    }
 }
 
 @end

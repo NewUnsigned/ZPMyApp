@@ -56,7 +56,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-RE-Vkq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pjb-Y3-LcI">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -66,23 +66,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ccw-sd-buJ" userLabel="cellimage">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                </imageView>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49S-fC-SFc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ql9-p1-EqF" id="5Bb-Tl-Xf1"/>
+                                                    </connections>
+                                                </scrollView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ccw-sd-buJ" secondAttribute="bottom" id="0CJ-dS-0cq"/>
-                                            <constraint firstAttribute="trailing" secondItem="ccw-sd-buJ" secondAttribute="trailing" id="Qbp-BU-bA0"/>
-                                            <constraint firstItem="ccw-sd-buJ" firstAttribute="leading" secondItem="ql9-p1-EqF" secondAttribute="leading" id="aeM-Qz-6HT"/>
-                                            <constraint firstItem="ccw-sd-buJ" firstAttribute="top" secondItem="ql9-p1-EqF" secondAttribute="top" id="kga-9W-Osa"/>
+                                            <constraint firstAttribute="bottom" secondItem="49S-fC-SFc" secondAttribute="bottom" id="AEE-NY-r4w"/>
+                                            <constraint firstItem="49S-fC-SFc" firstAttribute="top" secondItem="ql9-p1-EqF" secondAttribute="top" id="GSf-RV-8lt"/>
+                                            <constraint firstAttribute="trailing" secondItem="49S-fC-SFc" secondAttribute="trailing" id="UG2-nE-d3m"/>
+                                            <constraint firstItem="49S-fC-SFc" firstAttribute="leading" secondItem="ql9-p1-EqF" secondAttribute="leading" id="oXw-tR-6Kt"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="cellImage" destination="ccw-sd-buJ" id="jyl-Ec-Hbd"/>
+                                            <outlet property="scrollView" destination="49S-fC-SFc" id="s4X-HB-rNW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

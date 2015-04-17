@@ -9,7 +9,7 @@
 #import "ZPBroViewController.h"
 #import "ZPBroCollectionViewCell.h"
 #import "ZPPhoto.h"
-@interface ZPBroViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ZPBroViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *colView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *colFlowLayout;
@@ -21,6 +21,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)savePhoto {
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    UIImageView *imgView = scrollView.subviews.lastObject;
+    return imgView;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -40,7 +46,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return self.urlStrArr.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath

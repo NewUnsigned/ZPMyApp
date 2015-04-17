@@ -48,6 +48,8 @@
 		75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003C61AD929C70030D4E2 /* ZPBasicTableViewController.m */; };
 		75D003C91AD929D30030D4E2 /* Basic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D003C81AD929D30030D4E2 /* Basic.storyboard */; };
 		75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */; };
+		75E3B07F1AE11C8700F4380B /* ZPSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */; };
+		75E3B0811AE11C9100F4380B /* ZPSendViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */; };
 		75E93DAC1ADAA4650058D2FE /* ZPWelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DAB1ADAA4650058D2FE /* ZPWelViewController.m */; };
 		75E93DAF1ADAA7D00058D2FE /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DAE1ADAA7D00058D2FE /* UIWindow+Extension.m */; };
 		75E93DB11ADAA99B0058D2FE /* NewFeature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E93DB01ADAA99B0058D2FE /* NewFeature.storyboard */; };
@@ -144,6 +146,9 @@
 		75D003C81AD929D30030D4E2 /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
 		75D003CA1AD92FE40030D4E2 /* ZPLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPLogViewController.h; sourceTree = "<group>"; };
 		75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPLogViewController.m; sourceTree = "<group>"; };
+		75E3B07D1AE11C8700F4380B /* ZPSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPSendViewController.h; sourceTree = "<group>"; };
+		75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPSendViewController.m; sourceTree = "<group>"; };
+		75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZPSendViewController.storyboard; sourceTree = "<group>"; };
 		75E93DAA1ADAA4650058D2FE /* ZPWelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPWelViewController.h; sourceTree = "<group>"; };
 		75E93DAB1ADAA4650058D2FE /* ZPWelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPWelViewController.m; sourceTree = "<group>"; };
 		75E93DAD1ADAA7D00058D2FE /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -263,6 +268,7 @@
 		758095CC1AD5542F00780820 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				75E3B0791AE11C3E00F4380B /* SendState */,
 				75883FD91ADA704600207FC4 /* NewFeature */,
 				75F9692A1AD9F41D007FEF04 /* Auth */,
 				758095CD1AD5542F00780820 /* Discover */,
@@ -603,6 +609,40 @@
 			name = ScanLife;
 			sourceTree = "<group>";
 		};
+		75E3B0791AE11C3E00F4380B /* SendState */ = {
+			isa = PBXGroup;
+			children = (
+				75E3B07A1AE11C3E00F4380B /* Controller */,
+				75E3B07B1AE11C3E00F4380B /* Model */,
+				75E3B07C1AE11C3E00F4380B /* View */,
+			);
+			path = SendState;
+			sourceTree = "<group>";
+		};
+		75E3B07A1AE11C3E00F4380B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75E3B07D1AE11C8700F4380B /* ZPSendViewController.h */,
+				75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75E3B07B1AE11C3E00F4380B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75E3B07C1AE11C3E00F4380B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		75F9692A1AD9F41D007FEF04 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +771,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75E3B0811AE11C9100F4380B /* ZPSendViewController.storyboard in Resources */,
 				75AFACC81AD64D650031B787 /* Images.xcassets in Resources */,
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
@@ -798,6 +839,7 @@
 			files = (
 				758095EF1AD5542F00780820 /* UIView+Extension.m in Sources */,
 				75E93DAC1ADAA4650058D2FE /* ZPWelViewController.m in Sources */,
+				75E3B07F1AE11C8700F4380B /* ZPSendViewController.m in Sources */,
 				758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */,
 				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
 				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
@@ -958,6 +1000,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -971,6 +1014,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

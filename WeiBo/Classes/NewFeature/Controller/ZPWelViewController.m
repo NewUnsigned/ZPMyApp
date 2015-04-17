@@ -37,12 +37,15 @@
 - (void)setIconImageWithURL
 {
     //授权后每次登录更新用户信息
+    
     ZPAccount *account = [ZPAccount accountFromSandbox];
     NSString *urlString = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@",account.access_token,account.uid];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLResponse *response = [NSURLResponse alloc];
+    [SVProgressHUD showWithStatus:@"正在获取数据,请稍后!"];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
+    
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
     ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
     [profile save];
