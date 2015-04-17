@@ -11,4 +11,8 @@
 @interface ZPPhoto : NSObject
 /** 缩略图 */
 @property (nonatomic, copy) NSString *thumbnail_pic;
+// 中等图
+@property (nonatomic, copy) NSString *bmiddle_pic;
+// 原始图
+@property (nonatomic, copy) NSString *original_pic;
 @end

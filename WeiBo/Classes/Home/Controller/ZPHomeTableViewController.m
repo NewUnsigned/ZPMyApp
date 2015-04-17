@@ -168,7 +168,11 @@ ZPButton *_btn;
     picCell1.cellIndexPatnSelected = ^(NSIndexPath *path){
         UIStoryboard *browserSB = [UIStoryboard storyboardWithName:@"Browser" bundle:nil];
         ZPBroViewController *browserVC = browserSB.instantiateInitialViewController;
-        browserVC.urlStrArr = statu.pic_urls;
+        if (statu.retweeted_status != nil) {
+            browserVC.urlStrArr = statu.retweeted_status.pic_urls;
+        }else{
+            browserVC.urlStrArr = statu.pic_urls;
+        }
         browserVC.indexPath = path;
         [weakSelf.navigationController presentViewController:browserVC animated:YES completion:nil];
     };
@@ -183,15 +187,14 @@ ZPButton *_btn;
     ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statue]];
     
     NSNumber *rowHight = [self.rowHightCache objectForKey:statue.idstr];
-    
+    CGFloat rowHightNum = [rowHight integerValue];
     if (rowHight == nil) {
         //使用NSCache将计算的高度缓存起来
-        NSUInteger rowHightNum = [cell countCellRowHight:statue];
+        rowHightNum = [cell countCellRowHight:statue];
         rowHight = @(rowHightNum);
         [_rowHightCache setObject:rowHight forKey:statue.idstr];
     }
-    
-    return rowHight.integerValue;
+    return rowHightNum;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ZPBroCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) UIImageView *cellImage;
 
 //图片地址
 @property (nonatomic, copy) NSString *imgUrlString;

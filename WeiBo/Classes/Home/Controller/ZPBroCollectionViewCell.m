@@ -9,7 +9,6 @@
 #import "ZPBroCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface ZPBroCollectionViewCell() <UIScrollViewDelegate>
-@property (weak, nonatomic) UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, assign) CGRect screenFrame;
 @end
@@ -18,7 +17,7 @@
 - (void)awakeFromNib
 {
     _screenFrame = [UIScreen mainScreen].bounds;
-    self.scrollView.maximumZoomScale = 2;
+    self.scrollView.maximumZoomScale = 8;
     self.scrollView.minimumZoomScale = 0.2;
     [self.scrollView setZoomScale:0.2];
 }
@@ -28,11 +27,16 @@
     _imgUrlString = imgUrlString;
     NSURL *url = [NSURL URLWithString:imgUrlString];
     [self.cellImage sd_setImageWithURL:url];
+    
+    
     CGFloat cellX = _screenFrame.size.width * 0.5;
     CGFloat cellY = _screenFrame.size.height * 0.5;
     [self.cellImage sizeToFit];
     self.cellImage.center =  CGPointMake(cellX,cellY);
+    [self.scrollView addSubview:self.cellImage];
+    
 }
+
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
@@ -44,9 +48,18 @@
     CGFloat cellX = _screenFrame.size.width * 0.5;
     CGFloat cellY = _screenFrame.size.height * 0.5;
     [UIView animateWithDuration:0.25 animations:^{
-        
+        self.scrollView.center = CGPointMake(cellX, cellY);
+
         self.cellImage.center =  CGPointMake(cellX,cellY);
     }];
+}
+
+- (UIImageView *)cellImage
+{
+    if (_cellImage == nil) {
+        _cellImage = [[UIImageView alloc]init];
+    }
+    return _cellImage;
 }
 
 @end

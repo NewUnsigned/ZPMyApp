@@ -9,6 +9,7 @@
 #import "ZPBroViewController.h"
 #import "ZPBroCollectionViewCell.h"
 #import "ZPPhoto.h"
+#import <SVProgressHUD.h>
 @interface ZPBroViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *colView;
@@ -21,6 +22,26 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)savePhoto {
+    // 保存图片
+    // 1.获取当前显示的cell的索引, 由于我们一页只显示一个cell, 所以直接拿lastObject
+    NSIndexPath *path = [self.colView.indexPathsForVisibleItems  lastObject];
+    // 2.根据索引来获取cell
+    ZPBroCollectionViewCell *cell = (ZPBroCollectionViewCell *)[self.colView cellForItemAtIndexPath:path];
+    
+    // 3.获取cell上得图片
+    UIImage *image = cell.cellImage.image;
+    
+    // 4.存储图片
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error == nil) {
+        [SVProgressHUD showSuccessWithStatus:@"保存图片成功"];
+    }else
+    {
+        [SVProgressHUD showErrorWithStatus:@"保存图片失败"];
+    }
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
@@ -62,7 +83,7 @@
    forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZPPhoto *photoName = self.urlStrArr[indexPath.item];
-    cell.imgUrlString = photoName.thumbnail_pic;
+    cell.imgUrlString = photoName.bmiddle_pic;
     cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1];
 
 }
