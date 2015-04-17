@@ -7,8 +7,18 @@
 //
 
 #import "ZPSendViewController.h"
+#import "ZPSendTextView.h"
 
-@interface ZPSendViewController ()
+@interface ZPSendViewController () <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet ZPSendTextView *sendText;
+@property (weak, nonatomic) IBOutlet UIView *sendConView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *recent;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *defaultEmoji;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *emoji;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *langXiaoHua;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendBtnState;
+- (IBAction)closeSendVC:(id)sender;
+- (IBAction)sendStatue:(id)sender;
 
 @end
 
@@ -16,22 +26,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //直接进入编辑状态
+    [self becomeFirstResponder];
+    self.sendText.delegate = self;
+}
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView
+{
+    //当输入文本为空时,显示占位字符,否则隐藏
+    if (textView.text.length > 0) {
+        _sendText.textLbl.hidden = YES;
+        _sendBtnState.enabled = YES;
+    }else{
+        _sendText.textLbl.hidden = NO;
+        _sendBtnState.enabled = NO;
+    }
+}
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    [self becomeFirstResponder];
+    return YES;
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+- (IBAction)closeSendVC:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)sendStatue:(id)sender {
+
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

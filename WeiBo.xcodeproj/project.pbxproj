@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		751F62FF1ADF5630004C0076 /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751F62FE1ADF5630004C0076 /* Browser.storyboard */; };
+		752871601AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */; };
 		758095B21AD51D0300780820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758095B01AD51D0300780820 /* Main.storyboard */; };
 		758095B71AD51D0300780820 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758095B51AD51D0300780820 /* LaunchScreen.xib */; };
 		758095C31AD51D0300780820 /* WeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758095C21AD51D0300780820 /* WeiBoTests.m */; };
@@ -50,6 +51,7 @@
 		75D003CC1AD92FE40030D4E2 /* ZPLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D003CB1AD92FE40030D4E2 /* ZPLogViewController.m */; };
 		75E3B07F1AE11C8700F4380B /* ZPSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */; };
 		75E3B0811AE11C9100F4380B /* ZPSendViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */; };
+		75E3B0841AE1337200F4380B /* ZPSendTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E3B0831AE1337200F4380B /* ZPSendTextView.m */; };
 		75E93DAC1ADAA4650058D2FE /* ZPWelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DAB1ADAA4650058D2FE /* ZPWelViewController.m */; };
 		75E93DAF1ADAA7D00058D2FE /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DAE1ADAA7D00058D2FE /* UIWindow+Extension.m */; };
 		75E93DB11ADAA99B0058D2FE /* NewFeature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E93DB01ADAA99B0058D2FE /* NewFeature.storyboard */; };
@@ -74,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		751F62FE1ADF5630004C0076 /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
+		7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPStatuePictureCollectionViewCell.h; sourceTree = "<group>"; };
+		7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPStatuePictureCollectionViewCell.m; sourceTree = "<group>"; };
 		758095A31AD51D0300780820 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095A71AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758095B11AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		75E3B07D1AE11C8700F4380B /* ZPSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPSendViewController.h; sourceTree = "<group>"; };
 		75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPSendViewController.m; sourceTree = "<group>"; };
 		75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZPSendViewController.storyboard; sourceTree = "<group>"; };
+		75E3B0821AE1337200F4380B /* ZPSendTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPSendTextView.h; sourceTree = "<group>"; };
+		75E3B0831AE1337200F4380B /* ZPSendTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPSendTextView.m; sourceTree = "<group>"; };
 		75E93DAA1ADAA4650058D2FE /* ZPWelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPWelViewController.h; sourceTree = "<group>"; };
 		75E93DAB1ADAA4650058D2FE /* ZPWelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPWelViewController.m; sourceTree = "<group>"; };
 		75E93DAD1ADAA7D00058D2FE /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -624,6 +630,8 @@
 			children = (
 				75E3B07D1AE11C8700F4380B /* ZPSendViewController.h */,
 				75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */,
+				7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */,
+				7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -639,6 +647,8 @@
 			isa = PBXGroup;
 			children = (
 				75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */,
+				75E3B0821AE1337200F4380B /* ZPSendTextView.h */,
+				75E3B0831AE1337200F4380B /* ZPSendTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -840,6 +850,7 @@
 				758095EF1AD5542F00780820 /* UIView+Extension.m in Sources */,
 				75E93DAC1ADAA4650058D2FE /* ZPWelViewController.m in Sources */,
 				75E3B07F1AE11C8700F4380B /* ZPSendViewController.m in Sources */,
+				75E3B0841AE1337200F4380B /* ZPSendTextView.m in Sources */,
 				758096021AD5568900780820 /* ZPHomeTableViewController.m in Sources */,
 				758095EE1AD5542F00780820 /* UIBarButtonItem+Extension.m in Sources */,
 				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
@@ -849,6 +860,7 @@
 				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
 				75E93DC01ADACD120058D2FE /* ZPProfileInfo.m in Sources */,
 				7580960C1AD55FEE00780820 /* ZPProfileViewController.m in Sources */,
+				752871601AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m in Sources */,
 				75883FCF1ADA14A100207FC4 /* ZPAuthViewController.m in Sources */,
 				75E93DAF1ADAA7D00058D2FE /* UIWindow+Extension.m in Sources */,
 				758095F01AD5542F00780820 /* AppDelegate.m in Sources */,

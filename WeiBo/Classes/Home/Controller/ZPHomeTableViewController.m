@@ -25,8 +25,9 @@
 #import <PopMenu.h>
 #import "ZPProfileInfo.h"
 #import "ZPBroViewController.h"
+#import "ZPSendViewController.h"
 
-@interface ZPHomeTableViewController () <ZPSmallViewDelegate,ZPTabBarCustomDelegate>
+@interface ZPHomeTableViewController () <ZPTabBarCustomDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
 @property (nonatomic, strong) NSArray *weiboStatus;
@@ -57,22 +58,22 @@ NSCache *rowHightCache;
 - (void)showPopMenu
 {
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
-    MenuItem  *menuItem = [[MenuItem alloc] initWithTitle:@"文字" iconName:@"post_type_bubble_flickr" glowColor:[UIColor grayColor] index:0];
+    MenuItem  *menuItem = [[MenuItem alloc] initWithTitle:@"文字" iconName:@"tabbar_compose_idea" glowColor:[UIColor grayColor] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:@"相册" iconName:@"post_type_bubble_googleplus" glowColor:[UIColor colorWithRed:0.000 green:0.840 blue:0.000 alpha:1.000] index:0];
+    menuItem = [[MenuItem alloc] initWithTitle:@"相册" iconName:@"tabbar_compose_photo" glowColor:[UIColor colorWithRed:0.000 green:0.840 blue:0.000 alpha:1.000] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:@"拍摄" iconName:@"post_type_bubble_instagram" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    menuItem = [[MenuItem alloc] initWithTitle:@"拍摄" iconName:@"tabbar_compose_camera" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:@"签到" iconName:@"post_type_bubble_twitter" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    menuItem = [[MenuItem alloc] initWithTitle:@"签到" iconName:@"tabbar_compose_lbs" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:@"点评" iconName:@"post_type_bubble_youtube" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    menuItem = [[MenuItem alloc] initWithTitle:@"点评" iconName:@"tabbar_compose_review" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
     [items addObject:menuItem];
     
-    menuItem = [[MenuItem alloc] initWithTitle:@"更多" iconName:@"post_type_bubble_facebook" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
+    menuItem = [[MenuItem alloc] initWithTitle:@"更多" iconName:@"tabbar_compose_more" glowColor:[UIColor colorWithRed:0.687 green:0.000 blue:0.000 alpha:1.000] index:0];
     [items addObject:menuItem];
     
     CGRect screenFrame = [UIScreen mainScreen].bounds;
@@ -96,6 +97,9 @@ NSCache *rowHightCache;
 - (void)pushView
 {
     //发送微博  控制器
+    UIStoryboard *sendSB = [UIStoryboard storyboardWithName:@"ZPSendViewController" bundle:nil];
+    ZPSendViewController *sendVC = sendSB.instantiateInitialViewController;
+    [self.navigationController presentViewController:sendVC animated:YES completion:nil];
     
 }
 //MARK: 下载微博数据

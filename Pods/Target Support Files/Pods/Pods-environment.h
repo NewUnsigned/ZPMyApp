@@ -48,11 +48,41 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 2
 
+// DACircularProgress
+#define COCOAPODS_POD_AVAILABLE_DACircularProgress
+#define COCOAPODS_VERSION_MAJOR_DACircularProgress 2
+#define COCOAPODS_VERSION_MINOR_DACircularProgress 3
+#define COCOAPODS_VERSION_PATCH_DACircularProgress 1
+
+// MBProgressHUD
+#define COCOAPODS_POD_AVAILABLE_MBProgressHUD
+#define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
+#define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
+
 // MJExtension
 #define COCOAPODS_POD_AVAILABLE_MJExtension
 #define COCOAPODS_VERSION_MAJOR_MJExtension 0
 #define COCOAPODS_VERSION_MINOR_MJExtension 3
-#define COCOAPODS_VERSION_PATCH_MJExtension 1
+#define COCOAPODS_VERSION_PATCH_MJExtension 2
+
+// MJRefresh
+#define COCOAPODS_POD_AVAILABLE_MJRefresh
+#define COCOAPODS_VERSION_MAJOR_MJRefresh 1
+#define COCOAPODS_VERSION_MINOR_MJRefresh 4
+#define COCOAPODS_VERSION_PATCH_MJRefresh 5
+
+// MWPhotoBrowser
+#define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
+#define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
+#define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 4
+#define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
+
+// PSTCollectionView
+#define COCOAPODS_POD_AVAILABLE_PSTCollectionView
+#define COCOAPODS_VERSION_MAJOR_PSTCollectionView 1
+#define COCOAPODS_VERSION_MINOR_PSTCollectionView 2
+#define COCOAPODS_VERSION_PATCH_PSTCollectionView 3
 
 // PopMenu
 #define COCOAPODS_POD_AVAILABLE_PopMenu
