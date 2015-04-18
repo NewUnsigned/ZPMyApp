@@ -19,6 +19,8 @@
 /** 微博来源 */
 @property (nonatomic, copy) NSString *source;
 
+@property (nonatomic, assign) CGFloat rowHight;
+
 /** 转发数 */
 @property (nonatomic, assign) int reposts_count;
 /** 评论数 */

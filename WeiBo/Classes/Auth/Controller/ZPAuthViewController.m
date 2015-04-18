@@ -36,7 +36,6 @@
 }
 - (void)loginWeiBo
 {
-    NSLog(@"%s",__func__);
     self.loginWebView.delegate = self;
     [SVProgressHUD showWithStatus:@"正在加载,请稍等!"];
     //请求的URL
@@ -48,7 +47,6 @@
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"%@",request.URL.absoluteString);
     NSRange rang = [request.URL.absoluteString rangeOfString:@"code="];
     if (rang.location != NSNotFound) {
         // 2.截取已经授权的RequestToken, 然后后利用RequestToken换取AccessToken

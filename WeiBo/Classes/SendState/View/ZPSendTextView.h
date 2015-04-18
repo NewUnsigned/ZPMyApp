@@ -11,4 +11,5 @@
 @interface ZPSendTextView : UITextView
 /// 输入框占位字符
 @property (nonatomic, strong) UILabel *textLbl;
+
 @end

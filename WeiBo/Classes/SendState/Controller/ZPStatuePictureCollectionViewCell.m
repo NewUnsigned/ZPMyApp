@@ -8,11 +8,14 @@
 
 #import "ZPStatuePictureCollectionViewCell.h"
 @interface ZPStatuePictureCollectionViewCell ()
+
 @property (weak, nonatomic) IBOutlet UIButton *pictureBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+
 - (IBAction)deleteBtnClicked:(id)sender;
 @end
 @implementation ZPStatuePictureCollectionViewCell
+
 - (void)deleteBtnClicked:(id)sender
 {
     

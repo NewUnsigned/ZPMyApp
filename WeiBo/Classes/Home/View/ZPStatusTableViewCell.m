@@ -123,28 +123,6 @@
     CGFloat photosHeight = row * pictureHeigth + (row - 1) * pictureMargin;
     
     return CGSizeMake(photosWidth, photosHeight);
-//    if (count == 0) {
-//        return CGSizeZero;
-//    }
-//    NSUInteger hang = count/3 + 1;
-//    NSInteger lie = 3;
-//    
-//    if (count == 3) {
-//        hang = 1;
-//    }
-//    if (count == 6) {
-//        hang = 2;
-//    }
-//    if (count == 9) {
-//        hang = 3;
-//    }
-//    lie = count < 3 ? count : 3;
-//    
-//    CGFloat picW = lie * 90 + (lie - 1) * 10;
-//    CGFloat picH = hang * 90 + (hang - 1) * 10;
-//    NSLog(@"%ld %f %f",count,picW,picH);
-//    return CGSizeMake(picW,picH);
-    
 }
 - (CGFloat)countCellRowHight:(ZPStatus *)status
 {
@@ -162,7 +140,7 @@
     if (status.retweeted_status == nil) {
         return @"Wei_Cell";
     }
-    return @"forwardWei_Cell";
+    return @"forwardWei_Cell";//forwardWei_Cell
 }
 - (NSArray *)picArr
 {

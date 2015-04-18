@@ -61,7 +61,7 @@
     scaleAnimation.springBounciness = 20;    // value between 0-20
     scaleAnimation.springSpeed = 20;     // value between 0-20
     scaleAnimation.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
-    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.3, 1.3)];
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(0.8, 0.8)];
     [self pop_addAnimation:scaleAnimation forKey:@"scaleAnimationKey"];
 }
 
@@ -71,8 +71,8 @@
 
 - (void)disMissCompleted:(void(^)(BOOL finished))completed {
     POPSpringAnimation *scaleAnimation = [POPSpringAnimation animation];
-    scaleAnimation.springBounciness = 16;    // value between 0-20
-    scaleAnimation.springSpeed = 14;     // value between 0-20
+    scaleAnimation.springBounciness = 14;    // value between 0-20
+    scaleAnimation.springSpeed = 16;     // value between 0-20
     scaleAnimation.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
     scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
     scaleAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {

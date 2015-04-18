@@ -26,14 +26,16 @@
 #import "ZPProfileInfo.h"
 #import "ZPBroViewController.h"
 #import "ZPSendViewController.h"
+#import <MJRefresh/MJRefresh.h>
+#import <MWPhotoBrowser.h>
 
-@interface ZPHomeTableViewController () <ZPTabBarCustomDelegate>
+@interface ZPHomeTableViewController () <ZPTabBarCustomDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
-@property (nonatomic, strong) NSArray *weiboStatus;
+@property (nonatomic, strong) NSMutableArray *weiboStatus;
 @property (nonatomic, strong) PopMenu *popMenu;;
-@property (nonatomic, strong)
-NSCache *rowHightCache;
+@property (nonatomic, strong) NSCache *rowHightCache;
+@property (nonatomic, strong) NSMutableArray *photos;
 
 @end
 
@@ -41,6 +43,7 @@ NSCache *rowHightCache;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setLeftAndRightBarButtonItem];
     //设置titleView
     ZPTabBar *customTabbar = (ZPTabBar *) self.tabBarController.tabBar;
@@ -49,7 +52,114 @@ NSCache *rowHightCache;
     [self setLogViewImageAndDegest];
     //加载微博数据
     [self loadWeiBoInfo];
+    [self pullDownUpdate];
 }
+#pragma mark - 下拉/上拉刷新
+- (void)pullDownUpdate {
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        //取出请求需要的参数
+        ZPStatus *status = [weakSelf.weiboStatus firstObject];
+        NSString *idstr = status.idstr;
+        if (idstr == nil || [idstr isEqualToString: @""]) {
+            idstr = @"0";
+        }
+        [weakSelf loadNewStatusWithIdstr:idstr header:YES];
+
+    }];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        //取出请求需要的参数
+        ZPStatus *status = [weakSelf.weiboStatus lastObject];
+        NSUInteger idstrNum = status.idstr.integerValue;
+        NSString *idstr = [NSString stringWithFormat:@"%tu",idstrNum - 1];
+        [weakSelf loadNewStatusWithIdstr:idstr header:NO];
+        
+    }];
+    
+}
+
+- (void)loadNewStatusWithIdstr:(NSString *)idstr header:(BOOL)header
+{
+    ZPAccount *acount = [ZPAccount accountFromSandbox];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *parater = [NSMutableDictionary dictionary];
+    parater[@"access_token"] = acount.access_token;
+    if (header) {
+        parater[@"since_id"] = idstr;
+    }else
+    {
+        parater[@"max_id"] = idstr;
+    }
+    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *dicts = responseObject[@"statuses"];
+        
+        NSArray *tempArr = [ZPStatus objectArrayWithKeyValuesArray:dicts];
+        
+        if (header) {
+            // 插入到最前面
+            NSRange range = NSMakeRange(0, tempArr.count);
+            NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+            [self.weiboStatus insertObjects:tempArr atIndexes:set];
+            
+            // 显示提醒文本
+            [self showNewStatusCount: tempArr.count];
+        }else{
+            // 插入到末尾
+            [self.weiboStatus addObjectsFromArray:tempArr];
+        }
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+    }];
+}
+// 显示刷新提醒
+- (void)showNewStatusCount:(NSInteger)count
+{
+    // 1.创建Label
+    UILabel *countLabel = [[UILabel alloc] init];
+    // 2.设置Label的属性
+    CGFloat labelW = self.view.width;
+    CGFloat labelH = 30;
+    CGFloat labelX = 0;
+    CGFloat labelY = 64 - labelH;
+    countLabel.frame = CGRectMake(labelX, labelY, labelW, labelH);
+    NSString *text = nil;
+    if (count == 0) {
+        text = @"没有更多微博数据";
+    }else
+    {
+        text = [NSString stringWithFormat:@"%tu 条新微博", count];
+    }
+    countLabel.text = text;
+    
+    countLabel.backgroundColor = [UIColor orangeColor];
+    UINavigationBar *bar = self.navigationController.navigationBar;
+    [self.navigationController.view insertSubview:countLabel belowSubview:bar];
+    
+    countLabel.textAlignment = NSTextAlignmentCenter;
+    countLabel.textColor = [UIColor whiteColor];
+    
+    // 3.执行动画
+    [UIView animateWithDuration:0.5 animations:^{
+        // 让提醒问下向下移动
+        countLabel.transform = CGAffineTransformMakeTranslation(0, labelH);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 delay:1 options:0 animations:^{
+            // 让提醒文本向上移动
+            countLabel.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            // 销毁提醒文本
+            [countLabel removeFromSuperview];
+        }];
+    }];
+}
+
 - (void)tabbar:(ZPTabBar *)tabbar plusButtonClicked:(UIButton *)plusBtn
 {
     [self showPopMenu];
@@ -79,20 +189,43 @@ NSCache *rowHightCache;
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     if (!_popMenu) {
         _popMenu = [[PopMenu alloc] initWithFrame:screenFrame items:items];
-        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+        _popMenu.menuAnimationType = kPopMenuAnimationTypeSina;
     }
     if (_popMenu.isShowed) {
         return;
     }
     __block typeof(self) weakSelf = self;
     _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-        if (selectedItem.index == 0) {
-            [weakSelf pushView];
+        switch (selectedItem.index) {
+            case 0:
+                [weakSelf pushView];
+                break;
+            case 1:
+                [weakSelf pushView];
+                break;
+            case 2:
+                [weakSelf pushView];
+                break;
+            case 3:
+                [weakSelf pushView];
+                break;
+            case 4:
+                [weakSelf pushView];
+                break;
+            case 5:
+                [weakSelf pushView];
+                break;
+            default:
+                break;
         }
     };
     
     [_popMenu showMenuAtView:self.navigationController.tabBarController.view];
     [_popMenu showMenuAtView:self.navigationController.tabBarController.view startPoint:CGPointMake(CGRectGetWidth(screenFrame) - 60, CGRectGetHeight(screenFrame)) endPoint:CGPointMake(60, CGRectGetHeight(screenFrame))];
+}
+- (void)tackPickture
+{
+    
 }
 - (void)pushView
 {
@@ -117,7 +250,7 @@ NSCache *rowHightCache;
     
     [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *dicts = responseObject[@"statuses"];
-        self.weiboStatus = [ZPStatus objectArrayWithKeyValuesArray:dicts];
+        self.weiboStatus = [[ZPStatus objectArrayWithKeyValuesArray:dicts] mutableCopy];
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
@@ -156,7 +289,6 @@ ZPButton *_btn;
 {
     _btn.selected = YES;
     [self.smallBtn test:self.view button:_btn];
-    self.smallBtn.delegate = self;
 }
 
 #pragma mark - Table view data source
@@ -170,6 +302,8 @@ ZPButton *_btn;
     picCell1.status = statu;
     __weak typeof(self) weakSelf = self;
     picCell1.cellIndexPatnSelected = ^(NSIndexPath *path){
+        /*
+        //自定义图片浏览器
         UIStoryboard *browserSB = [UIStoryboard storyboardWithName:@"Browser" bundle:nil];
         ZPBroViewController *browserVC = browserSB.instantiateInitialViewController;
         if (statu.retweeted_status != nil) {
@@ -179,26 +313,54 @@ ZPButton *_btn;
         }
         browserVC.indexPath = path;
         [weakSelf.navigationController presentViewController:browserVC animated:YES completion:nil];
+         */
+    //使用MWPhotoBrowser框架图片浏览器
+        self.photos = nil;
+        NSArray *urlArr = [NSArray array];
+        if (statu.retweeted_status != nil) {
+            urlArr = [statu.retweeted_status.pic_urls valueForKey:@"bmiddle_pic"];
+            
+        }else{
+            urlArr = [statu.pic_urls valueForKey:@"bmiddle_pic"];
+            
+        }
+        for (int i = 0; i < urlArr.count; i++) {
+            NSURL *url = [NSURL URLWithString:urlArr[i]];
+            MWPhoto *photo = [[MWPhoto alloc]initWithURL:url];
+            [weakSelf.photos addObject:photo];
+        }
+        MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc]initWithDelegate:weakSelf];
+        [photoBrowser setCurrentPhotoIndex:path.item];
+        photoBrowser.displayActionButton = YES;
+        photoBrowser.displayNavArrows = YES;
+        photoBrowser.displaySelectionButtons = YES;
+        photoBrowser.zoomPhotosToFill = YES;
+        photoBrowser.alwaysShowControls = YES;
+        photoBrowser.enableGrid = YES;
+        photoBrowser.startOnGrid = YES;
+        [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
+//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//        [window addSubview:photoBrowser.view];
     };
     return picCell1;
 }
+#pragma mark - MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count)
+        return [self.photos objectAtIndex:index];
+    return nil;
+}
+
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     ZPStatus *statue = self.weiboStatus[indexPath.row];
-    ZPStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZPStatusTableViewCell indentifierWithStatus:statue]];
-    
-    NSNumber *rowHight = [self.rowHightCache objectForKey:statue.idstr];
-    CGFloat rowHightNum = [rowHight integerValue];
-    if (rowHight == nil) {
-        //使用NSCache将计算的高度缓存起来
-        rowHightNum = [cell countCellRowHight:statue];
-        rowHight = @(rowHightNum);
-        [_rowHightCache setObject:rowHight forKey:statue.idstr];
-    }
-    return rowHightNum;
+    return statue.rowHight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -248,8 +410,15 @@ ZPButton *_btn;
 - (NSArray *)weiboStatus
 {
     if (_weiboStatus == nil) {
-        _weiboStatus = [[NSArray alloc]init];
+        _weiboStatus = [[NSMutableArray alloc]init];
     }
     return _weiboStatus;
+}
+- (NSMutableArray *)photos
+{
+    if (_photos == nil) {
+        _photos = [NSMutableArray array];
+    }
+    return _photos;
 }
 @end

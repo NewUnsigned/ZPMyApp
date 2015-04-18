@@ -45,7 +45,9 @@
     NSURLResponse *response = [NSURLResponse alloc];
     [SVProgressHUD showWithStatus:@"正在获取数据,请稍后!"];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
-    
+//    if (data == nil) {
+//        return;
+//    }
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
     ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
     [profile save];

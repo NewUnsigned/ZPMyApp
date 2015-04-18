@@ -57,8 +57,8 @@
     
     typeof(self) __weak weakSelf = self;
     _realTimeBlur = [[XHRealTimeBlur alloc] initWithFrame:self.bounds];
-    _realTimeBlur.showDuration = 0.1;
-    _realTimeBlur.disMissDuration = 0.25;
+    _realTimeBlur.showDuration = 0.2;
+    _realTimeBlur.disMissDuration = 0.3;
     _realTimeBlur.willShowBlurViewcomplted = ^(void) {
         weakSelf.isShowed = YES;
         [weakSelf showButtons];

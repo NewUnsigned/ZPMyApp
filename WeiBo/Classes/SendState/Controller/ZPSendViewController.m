@@ -52,6 +52,7 @@
     [self.view endEditing:YES];
 }
 - (IBAction)closeSendVC:(id)sender {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

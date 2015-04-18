@@ -36,67 +36,85 @@
     
     _source =  [NSString stringWithFormat:@"来自:%@", str];
 }
+
+- (void)setPic_urls:(NSArray *)pic_urls
+{
+    _pic_urls = pic_urls;
+    [self countRowHigth];
+}
+
+- (void)setRetweeted_status:(ZPStatus *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    [self countRowHigth];
+}
+
+- (void)countRowHigth
+{
+    CGFloat margin = 10;
+    CGFloat iconHight = 44;
+    // 没有转发微博的情况
+    CGFloat picsHight = [self reSetPicViewSize].height;
+    CGFloat toolViewHigth = 44;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 20;
+    if (self.retweeted_status != nil) {
+        CGFloat textHight = [self heightForString:self.retweeted_status.text fontSize:17 width:width];
+        CGFloat textHightTwo = [self heightForString:self.text fontSize:17 width:width];
+        self.rowHight = 6 * margin + iconHight + textHight + picsHight + toolViewHigth + textHightTwo - 1;
+        return;
+    }
+    CGFloat textHight = [self heightForString:self.text fontSize:17 width:width];
+    self.rowHight = 4 * margin + iconHight + textHight + picsHight + toolViewHigth - 2;
+}
+
+- (CGFloat)heightForString:(NSString *)value fontSize:(float)fontSize width:(CGFloat)width
+{
+    CGSize sizeToFit = [value boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size;
+    return sizeToFit.height;
+}
+
+- (CGSize)reSetPicViewSize
+{
+    // 1.处理没有配图的情况
+    NSUInteger count = self.pic_urls.count;
+    if (self.retweeted_status != nil) {
+        count = self.retweeted_status.pic_urls.count;
+    }
+    if (count == 0) {
+        return CGSizeZero;
+    }
+    
+    // 2.计算行数列数
+    NSUInteger maxCols = count == 4 ? 2 : 3;
+    NSUInteger col = count > 3? maxCols : count;
+    NSUInteger row = 1;
+    if (count % 3 == 0) {
+        row = count / 3;
+    }else
+    {
+        row = count / 3 + 1;
+    }
+    
+    // 3.计算宽高
+    CGFloat pictureHeigth = 90;
+    CGFloat pictureWidth = 90;
+    CGFloat pictureMargin = 10; // 间隙
+    
+    // 宽度 = 列数 * 配图的宽度 + (列数 - 1) * 间隙
+    CGFloat photosWidth = col * pictureWidth + (col - 1) * pictureMargin;
+    // 高度= 行数 * 配图的高度 + (行数 - 1) * 间隙
+    CGFloat photosHeight = row * pictureHeigth + (row - 1) * pictureMargin;
+    
+    return CGSizeMake(photosWidth, photosHeight);
+}
+
 - (NSString *)created_at
 {
-    // 新浪返回给我们的时间, 是微博发布的时间
-    // 而我们需要显示的时间, 是距离发布时间的差值
-    //  Sun Apr 12 10:15:04 +0800 2015
-    //    _created_at = @"Sun Apr 12 10:15:04 +0800 2014";
-    // 1.将服务器返回的时间, 转换为NSDate
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    // 注意: 如果是真机, 最好写上下面这段话, 告诉系统我们的格式属于哪个时区
     formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
     formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     NSDate *createdDate = [formatter dateFromString:_created_at];
-    /*
-     // 2.获取本地的时间
-     NSDate *now = [NSDate date];
-     // 日历类, 它可以用于比较时间, 因为它可以获取某一个时间的年月日时分秒
-     NSCalendar *cal = [NSCalendar currentCalendar];
-     // 从指定的时间中获取时间的组成成分(年月日时分秒)
-     // NSDateComponents中就存储这所有取出来的成分
-     NSCalendarUnit flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-     // 取出当前时间的年月日
-     NSDateComponents *cmps1 = [cal components:flags fromDate:now];
-     // 取出服务器时间的年月日
-     NSDateComponents *cmps2 = [cal components:flags fromDate:createdDate];
-     // 3.利用本地时间和服务器的时间进行比较
-     if (cmps1.year == cmps2.year) {
-     DDLogInfo(@"同一年");
-     }else if(cmps1.year == cmps2.year && cmps1.month == cmps2.month){
-     DDLogInfo(@"同年同月");
-     }else if(cmps1.year == cmps2.year &&
-     cmps1.month == cmps2.month &&
-     cmps1.day == cmps2.day){
-     DDLogInfo(@"今天");
-     }
-     */
-    
-    /*
-     新浪的时间分为3大类:
-     1. 今年和非今年
-     2. 今天/昨天/其它天
-     3. 1分钟以内/1小时以内/其它小时
-     
-     1.今年发布
-     >今天
-     *1分钟内:刚刚
-     *1个小时内:XX分钟前
-     *其它:XX小时前
-     
-     服务器 2015-4-12 11:02:00
-     当前:  2015-4-12 12:03:00
-     
-     >昨天
-     *昨天 XX时:XX分
-     
-     >其它
-     　＊xx月xx日  XX时:XX分
-     
-     2.非今年发布
-     　＊xx年xx月xx日  XX时:XX分
-     */
-    
+
     if ([createdDate isThisYear]) {
         // 今年
         if ([createdDate isToday]) {
