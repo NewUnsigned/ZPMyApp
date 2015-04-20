@@ -19,7 +19,6 @@
 /** 微博来源 */
 @property (nonatomic, copy) NSString *source;
 
-@property (nonatomic, assign) CGFloat rowHight;
 
 /** 转发数 */
 @property (nonatomic, assign) int reposts_count;
@@ -36,4 +35,6 @@
 
 /** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
 @property (nonatomic, strong) NSArray *pic_urls;
+@property (nonatomic, assign) CGFloat rowHight;
+@property (nonatomic, assign) CGSize picsHight;
 @end

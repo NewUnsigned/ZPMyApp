@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Wei_Cell" rowHeight="332" id="ukp-td-C2b" customClass="ZPStatusTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Wei_Cell" rowHeight="131" id="ukp-td-C2b" customClass="ZPStatusTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ukp-td-C2b" id="vvK-Iw-kqr">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -210,7 +210,7 @@
                                     <outlet property="vipImage" destination="I3K-np-HIW" id="KAU-7U-5Yp"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="forwardWei_Cell" rowHeight="300" id="zKW-e7-fxh" customClass="ZPStatusTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="forwardWei_Cell" rowHeight="501" id="zKW-e7-fxh" customClass="ZPStatusTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zKW-e7-fxh" id="ifE-SX-0cw">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -277,7 +277,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="00" translatesAutoresizingMaskIntoConstraints="NO" id="97S-s2-y0D" userLabel="配图">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="00" translatesAutoresizingMaskIntoConstraints="NO" id="97S-s2-y0D" userLabel="配图">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -312,13 +312,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDz-RN-xwE" userLabel="底部工具条">
                                             <rect key="frame" x="0.0" y="236" width="600" height="44"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7N-ff-kDk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
-                                                    <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
-                                                        <color key="titleColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg0-rH-lw9">
                                                     <rect key="frame" x="400" y="0.0" width="200" height="44"/>
                                                     <state key="normal" title="点赞" image="timeline_icon_unlike" backgroundImage="timeline_card_bottom_background">
@@ -344,6 +337,13 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO3-zy-t6I">
                                                     <rect key="frame" x="200" y="0.0" width="200" height="44"/>
                                                     <state key="normal" title="评论" image="timeline_icon_comment" backgroundImage="timeline_card_bottom_background">
+                                                        <color key="titleColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7N-ff-kDk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                    <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
                                                         <color key="titleColor" white="0.58356553160000002" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>

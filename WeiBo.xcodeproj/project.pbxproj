@@ -61,6 +61,8 @@
 		75E93DBA1ADAC3230058D2FE /* ZPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DB91ADAC3230058D2FE /* ZPUser.m */; };
 		75E93DBD1ADAC3360058D2FE /* ZPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DBC1ADAC3360058D2FE /* ZPPhoto.m */; };
 		75E93DC01ADACD120058D2FE /* ZPProfileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E93DBF1ADACD120058D2FE /* ZPProfileInfo.m */; };
+		75F2EB411AE393F100334FB5 /* ZPPictureSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F2EB401AE393F100334FB5 /* ZPPictureSelectViewController.m */; };
+		75F2EB431AE3940400334FB5 /* ZPPictureSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F2EB421AE3940400334FB5 /* ZPPictureSelectViewController.storyboard */; };
 		75F9692F1AD9F469007FEF04 /* LogRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F9692E1AD9F469007FEF04 /* LogRegister.storyboard */; };
 		C933220AC3C05200743C3B5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E709656F10F050A21357C9DE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -77,8 +79,8 @@
 
 /* Begin PBXFileReference section */
 		751F62FE1ADF5630004C0076 /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
-		7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPStatuePictureCollectionViewCell.h; sourceTree = "<group>"; };
-		7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPStatuePictureCollectionViewCell.m; sourceTree = "<group>"; };
+		7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZPStatuePictureCollectionViewCell.h; path = ../Controller/ZPStatuePictureCollectionViewCell.h; sourceTree = "<group>"; };
+		7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZPStatuePictureCollectionViewCell.m; path = ../Controller/ZPStatuePictureCollectionViewCell.m; sourceTree = "<group>"; };
 		758095A31AD51D0300780820 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758095A71AD51D0300780820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758095B11AD51D0300780820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -172,6 +174,9 @@
 		75E93DBC1ADAC3360058D2FE /* ZPPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPPhoto.m; sourceTree = "<group>"; };
 		75E93DBE1ADACD120058D2FE /* ZPProfileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPProfileInfo.h; sourceTree = "<group>"; };
 		75E93DBF1ADACD120058D2FE /* ZPProfileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPProfileInfo.m; sourceTree = "<group>"; };
+		75F2EB3F1AE393F100334FB5 /* ZPPictureSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPPictureSelectViewController.h; sourceTree = "<group>"; };
+		75F2EB401AE393F100334FB5 /* ZPPictureSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPPictureSelectViewController.m; sourceTree = "<group>"; };
+		75F2EB421AE3940400334FB5 /* ZPPictureSelectViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZPPictureSelectViewController.storyboard; sourceTree = "<group>"; };
 		75F9692E1AD9F469007FEF04 /* LogRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogRegister.storyboard; sourceTree = "<group>"; };
 		873E2D08B841AD92E558395E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B42600F713913C7696FC68A7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +282,7 @@
 		758095CC1AD5542F00780820 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				75F2EB3B1AE393C500334FB5 /* Picture */,
 				75E3B0791AE11C3E00F4380B /* SendState */,
 				75883FD91ADA704600207FC4 /* NewFeature */,
 				75F9692A1AD9F41D007FEF04 /* Auth */,
@@ -633,8 +639,6 @@
 			children = (
 				75E3B07D1AE11C8700F4380B /* ZPSendViewController.h */,
 				75E3B07E1AE11C8700F4380B /* ZPSendViewController.m */,
-				7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */,
-				7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */,
 				75AF6BE91AE171AF00C1593F /* ZPPicktureCollectionViewController.h */,
 				75AF6BEA1AE171AF00C1593F /* ZPPicktureCollectionViewController.m */,
 			);
@@ -654,6 +658,42 @@
 				75E3B0801AE11C9100F4380B /* ZPSendViewController.storyboard */,
 				75E3B0821AE1337200F4380B /* ZPSendTextView.h */,
 				75E3B0831AE1337200F4380B /* ZPSendTextView.m */,
+				7528715E1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.h */,
+				7528715F1AE168F500DC6BCC /* ZPStatuePictureCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75F2EB3B1AE393C500334FB5 /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+				75F2EB3C1AE393C600334FB5 /* Controller */,
+				75F2EB3D1AE393C600334FB5 /* Model */,
+				75F2EB3E1AE393C600334FB5 /* View */,
+			);
+			path = Picture;
+			sourceTree = "<group>";
+		};
+		75F2EB3C1AE393C600334FB5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75F2EB3F1AE393F100334FB5 /* ZPPictureSelectViewController.h */,
+				75F2EB401AE393F100334FB5 /* ZPPictureSelectViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75F2EB3D1AE393C600334FB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75F2EB3E1AE393C600334FB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75F2EB421AE3940400334FB5 /* ZPPictureSelectViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +831,7 @@
 				758095F61AD5554400780820 /* Libs.storyboard in Resources */,
 				758096101AD5604700780820 /* Discover.storyboard in Resources */,
 				75D003C91AD929D30030D4E2 /* Basic.storyboard in Resources */,
+				75F2EB431AE3940400334FB5 /* ZPPictureSelectViewController.storyboard in Resources */,
 				75E93DB31ADAA9A40058D2FE /* Welcome.storyboard in Resources */,
 				75F9692F1AD9F469007FEF04 /* LogRegister.storyboard in Resources */,
 				758096041AD5569600780820 /* Home.storyboard in Resources */,
@@ -861,6 +902,7 @@
 				759D1F3A1AD7B74700447BCC /* ZPButton.m in Sources */,
 				75D003C71AD929C70030D4E2 /* ZPBasicTableViewController.m in Sources */,
 				75883FD81ADA6C3E00207FC4 /* NSString+Extension.m in Sources */,
+				75F2EB411AE393F100334FB5 /* ZPPictureSelectViewController.m in Sources */,
 				759D1F431AD7C81200447BCC /* ZPSmallViewController.m in Sources */,
 				758096091AD55FA400780820 /* ZPMesTableViewController.m in Sources */,
 				75AF6BEB1AE171AF00C1593F /* ZPPicktureCollectionViewController.m in Sources */,

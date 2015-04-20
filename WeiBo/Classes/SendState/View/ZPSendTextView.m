@@ -32,7 +32,7 @@
 - (void)setTExtLabel
 {
     UILabel *lb = [[UILabel alloc]init];
-    lb.text = @"请输入您感兴趣的内容......";
+    lb.text = @"分享新鲜事...";
     lb.x = 5;
     lb.y = 7;
     lb.textColor = [UIColor lightGrayColor];

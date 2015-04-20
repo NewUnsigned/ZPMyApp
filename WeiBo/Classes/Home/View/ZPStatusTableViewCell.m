@@ -83,47 +83,20 @@
         self.forwardStatue.text = forwardText;
         self.picArr = status.retweeted_status.pic_urls;
     }
-    CGSize picViewSize = [self reSetPicViewSize];
-    self.picViewHeight.constant = picViewSize.height;
-    self.picViewWidth.constant = picViewSize.width;
+    if (status.retweeted_status == nil) {
+        self.picViewHeight.constant = status.picsHight.height;
+        self.picViewWidth.constant = status.picsHight.width;
+    }else
+    {
+        self.picViewHeight.constant = status.retweeted_status.picsHight.height;
+        self.picViewWidth.constant = status.retweeted_status.picsHight.width;
+    }
+
     
     [self.oringinView reloadData];
     [self.forwardView reloadData];
 }
-- (CGSize)reSetPicViewSize
-{
-    // 1.处理没有配图的情况
-    NSUInteger count = self.status.pic_urls.count;
-    if (self.status.retweeted_status != nil) {
-        count = self.status.retweeted_status.pic_urls.count;
-    }
-    if (count == 0) {
-        return CGSizeZero;
-    }
-    
-    // 2.计算行数列数
-    NSUInteger maxCols = count == 4 ? 2 : 3;
-    NSUInteger col = count > 3? maxCols : count;
-    NSUInteger row = 1;
-    if (count % 3 == 0) {
-        row = count / 3;
-    }else
-    {
-        row = count / 3 + 1;
-    }
-    
-    // 3.计算宽高
-    CGFloat pictureHeigth = 90;
-    CGFloat pictureWidth = 90;
-    CGFloat pictureMargin = 10; // 间隙
-    
-    // 宽度 = 列数 * 配图的宽度 + (列数 - 1) * 间隙
-    CGFloat photosWidth = col * pictureWidth + (col - 1) * pictureMargin;
-    // 高度= 行数 * 配图的高度 + (行数 - 1) * 间隙
-    CGFloat photosHeight = row * pictureHeigth + (row - 1) * pictureMargin;
-    
-    return CGSizeMake(photosWidth, photosHeight);
-}
+
 - (CGFloat)countCellRowHight:(ZPStatus *)status
 {
     self.status = status;
@@ -140,7 +113,7 @@
     if (status.retweeted_status == nil) {
         return @"Wei_Cell";
     }
-    return @"forwardWei_Cell";//forwardWei_Cell
+    return @"forwardWei_Cell";
 }
 - (NSArray *)picArr
 {

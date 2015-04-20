@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jhb-d2-qsa">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--全部图片-->
+        <scene sceneID="L9N-Km-7i0">
+            <objects>
+                <viewController id="G4N-fI-P8b" customClass="ZPPictureSelectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cCe-jy-QQl"/>
+                        <viewControllerLayoutGuide type="bottom" id="q2K-qh-Bb4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xei-a7-h1I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hms-mw-I32">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y4-yc-8xf">
+                                        <rect key="frame" x="10" y="5" width="80" height="34"/>
+                                        <state key="normal" title="预览">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="compose_group_button_background"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnm-4p-ipl">
+                                        <rect key="frame" x="500" y="5" width="90" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="Yw6-A7-dDm"/>
+                                        </constraints>
+                                        <state key="normal" title="下一步">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hg-fd-wLq">
+                                        <rect key="frame" x="100" y="5" width="80" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Zex-Do-Uuf"/>
+                                        </constraints>
+                                        <state key="normal" title="原图">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="1y4-yc-8xf" firstAttribute="width" secondItem="0Hg-fd-wLq" secondAttribute="width" id="2Bu-v4-8sD"/>
+                                    <constraint firstAttribute="bottom" secondItem="1y4-yc-8xf" secondAttribute="bottom" constant="5" id="4XY-KQ-Xni"/>
+                                    <constraint firstItem="0Hg-fd-wLq" firstAttribute="leading" secondItem="1y4-yc-8xf" secondAttribute="trailing" constant="10" id="MjI-mL-TJK"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Hg-fd-wLq" secondAttribute="bottom" constant="5" id="bqQ-Yf-Uwj"/>
+                                    <constraint firstItem="1y4-yc-8xf" firstAttribute="height" secondItem="0Hg-fd-wLq" secondAttribute="height" id="drW-Cd-MVX"/>
+                                    <constraint firstItem="1y4-yc-8xf" firstAttribute="leading" secondItem="Hms-mw-I32" secondAttribute="leading" constant="10" id="feC-k4-J1f"/>
+                                    <constraint firstAttribute="height" constant="44" id="stK-ab-BMp"/>
+                                    <constraint firstAttribute="bottom" secondItem="wnm-4p-ipl" secondAttribute="bottom" constant="5" id="v8j-4o-Y1Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="wnm-4p-ipl" secondAttribute="trailing" constant="10" id="viP-xm-27l"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-pY-wOa">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y2i-TV-uol">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rgh-Lf-Y8x">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-i4-aVd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <state key="normal" image="camera_shift_camera_highlighted">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rDk-i4-aVd" firstAttribute="leading" secondItem="rgh-Lf-Y8x" secondAttribute="leading" id="nLv-OM-WZD"/>
+                                            <constraint firstAttribute="trailing" secondItem="rDk-i4-aVd" secondAttribute="trailing" id="pav-zC-q3b"/>
+                                            <constraint firstItem="rDk-i4-aVd" firstAttribute="top" secondItem="rgh-Lf-Y8x" secondAttribute="top" id="uaZ-le-ILK"/>
+                                            <constraint firstAttribute="bottom" secondItem="rDk-i4-aVd" secondAttribute="bottom" id="yLR-ea-QI9"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Hms-mw-I32" secondAttribute="trailing" id="4VM-dB-eZO"/>
+                            <constraint firstItem="q2K-qh-Bb4" firstAttribute="top" secondItem="Hms-mw-I32" secondAttribute="bottom" id="50u-DS-i0v"/>
+                            <constraint firstItem="Hms-mw-I32" firstAttribute="leading" secondItem="Xei-a7-h1I" secondAttribute="leading" id="F1g-Nl-HEC"/>
+                            <constraint firstItem="Hms-mw-I32" firstAttribute="top" secondItem="GHR-pY-wOa" secondAttribute="bottom" id="LpV-qz-Hqa"/>
+                            <constraint firstAttribute="trailing" secondItem="GHR-pY-wOa" secondAttribute="trailing" id="MIS-Rp-gZV"/>
+                            <constraint firstItem="q2K-qh-Bb4" firstAttribute="top" secondItem="Hms-mw-I32" secondAttribute="bottom" id="ShM-qI-dbp"/>
+                            <constraint firstItem="GHR-pY-wOa" firstAttribute="top" secondItem="cCe-jy-QQl" secondAttribute="bottom" id="gOq-OB-sgn"/>
+                            <constraint firstItem="GHR-pY-wOa" firstAttribute="leading" secondItem="Xei-a7-h1I" secondAttribute="leading" id="gw8-Z7-KHF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="50u-DS-i0v"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="全部图片" id="jlo-Gl-GEX">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="cQ9-Fa-axd">
+                            <connections>
+                                <action selector="dismissBtn:" destination="G4N-fI-P8b" id="Pqu-5t-0EC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0A-FJ-mnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="klI-U2-eMR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jhb-d2-qsa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PCe-EQ-srx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G4N-fI-P8b" kind="relationship" relationship="rootViewController" id="tTF-sd-rBq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHJ-O8-KJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_shift_camera_highlighted" width="60" height="60"/>
+        <image name="compose_group_button_background" width="40" height="25"/>
+    </resources>
+</document>

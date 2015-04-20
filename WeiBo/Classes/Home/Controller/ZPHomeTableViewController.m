@@ -29,7 +29,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <MWPhotoBrowser.h>
 
-@interface ZPHomeTableViewController () <ZPTabBarCustomDelegate,MWPhotoBrowserDelegate>
+@interface ZPHomeTableViewController () <ZPTabBarCustomDelegate,MWPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) ZPSmallView *smallBtn;
 @property (nonatomic, strong) NSMutableArray *weiboStatus;
@@ -201,10 +201,10 @@
                 [weakSelf pushView];
                 break;
             case 1:
-                [weakSelf pushView];
+                [weakSelf tackPickture];
                 break;
             case 2:
-                [weakSelf pushView];
+                [weakSelf tackPhoto];
                 break;
             case 3:
                 [weakSelf pushView];
@@ -223,9 +223,27 @@
     [_popMenu showMenuAtView:self.navigationController.tabBarController.view];
     [_popMenu showMenuAtView:self.navigationController.tabBarController.view startPoint:CGPointMake(CGRectGetWidth(screenFrame) - 60, CGRectGetHeight(screenFrame)) endPoint:CGPointMake(60, CGRectGetHeight(screenFrame))];
 }
+- (void)tackPhoto
+{
+    //先设定sourceType为相机，然后判断相机是否可用（ipod）没相机，不可用将sourceType设定为相片库
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    //sourceType = UIImagePickerControllerSourceTypeCamera; //照相机
+    //sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //图片库
+    //sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; //保存的相片
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];//初始化
+    picker.delegate = self;
+    picker.allowsEditing = YES;//设置可编辑
+    picker.sourceType = sourceType;
+    [self presentViewController:picker animated:YES completion:nil];//进入照相界面
+}
 - (void)tackPickture
 {
-    
+    UIStoryboard *picSB = [UIStoryboard storyboardWithName:@"ZPPictureSelectViewController" bundle:nil];
+    UIViewController *picVC = picSB.instantiateInitialViewController;
+    [self.navigationController presentViewController:picVC animated:YES completion:nil];
 }
 - (void)pushView
 {
@@ -255,7 +273,6 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
     }];
-
 }
 - (void)setLogViewImageAndDegest
 {

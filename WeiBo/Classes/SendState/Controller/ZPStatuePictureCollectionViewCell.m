@@ -20,4 +20,20 @@
 {
     
 }
+
+- (void)setImage:(UIImage *)image
+{
+    if (image == nil) {
+        self.deleteBtn.hidden = YES;
+        
+        // 注意: 重用问题, 每次要中心设置加号按钮的图片
+        [self.pictureBtn setBackgroundImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
+        [self.pictureBtn setBackgroundImage:[UIImage imageNamed:@"compose_pic_add_highlighted"] forState:UIControlStateHighlighted];
+    }else
+    {
+        self.deleteBtn.hidden = NO;
+        [self.pictureBtn setBackgroundImage:image forState:UIControlStateNormal];
+    }
+}
+
 @end

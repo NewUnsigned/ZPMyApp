@@ -10,6 +10,7 @@
 #import "ZPStatuePictureCollectionViewCell.h"
 
 @interface ZPPicktureCollectionViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *picFlowLayout;
 
 @end
 
@@ -19,24 +20,24 @@ static NSString * const reuseIdentifier = @"Status_Pickture_Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self.collectionView registerClass:[ZPStatuePictureCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.picFlowLayout.itemSize = CGSizeMake(90, 90);
+    self.picFlowLayout.minimumLineSpacing = 10;
+    self.picFlowLayout.minimumInteritemSpacing = 10;
 }
 
 #pragma mark <UICollectionViewDataSource>
 
-//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//    return 1;
-//}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+
+    return 5;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZPStatuePictureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor redColor];
-    
+    cell.image = [UIImage imageNamed:@"00"];
     return cell;
 }
 

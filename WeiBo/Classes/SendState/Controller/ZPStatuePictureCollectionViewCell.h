@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZPStatuePictureCollectionViewCell : UICollectionViewCell
-
+@property (nonatomic, strong) UIImage *image;
 @end

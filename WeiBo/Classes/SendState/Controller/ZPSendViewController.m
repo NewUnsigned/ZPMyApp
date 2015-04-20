@@ -8,18 +8,26 @@
 
 #import "ZPSendViewController.h"
 #import "ZPSendTextView.h"
+#import <AFNetworking/AFNetworking.h>
+#import "ZPStatus.h"
+#import "ZPAccount.h"
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+#import "ZPPictureSelectViewController.h"
 
 @interface ZPSendViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet ZPSendTextView *sendText;
-@property (weak, nonatomic) IBOutlet UIView *sendConView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *recent;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *defaultEmoji;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *emoji;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *langXiaoHua;
+@property (weak, nonatomic) IBOutlet UIButton *showImage;
+@property (weak, nonatomic) IBOutlet UIButton *longStatue;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sendBtnState;
+
+- (IBAction)selectPicture;
+
 - (IBAction)closeSendVC:(id)sender;
 - (IBAction)sendStatue:(id)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarBottonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
 @end
 
 @implementation ZPSendViewController
@@ -45,18 +53,52 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     [self becomeFirstResponder];
+    [UIView animateWithDuration:5 animations:^{
+        self.toolBarBottonConstraint.constant = 255;
+    }];
     return YES;
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
+    [UIView animateWithDuration:5 animations:^{
+        self.toolBarBottonConstraint.constant = 0;
+    }];
     [self.view endEditing:YES];
 }
+//选择图片
+- (IBAction)selectPicture {
+
+    [UIView animateWithDuration:0.2 animations:^{
+        self.toolBarBottonConstraint.constant = 0;
+    } completion:^(BOOL finished) {
+        UIStoryboard *picSB = [UIStoryboard storyboardWithName:@"ZPPictureSelectViewController" bundle:nil];
+        UIViewController *picVC = picSB.instantiateInitialViewController;
+        [self.navigationController presentViewController:picVC animated:YES completion:nil];
+    }];
+}
+
+
 - (IBAction)closeSendVC:(id)sender {
     [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)sendStatue:(id)sender {
+    //发送微博
+    ZPAccount *acount = [ZPAccount accountFromSandbox];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *parater = [NSMutableDictionary dictionary];
+    parater[@"access_token"] = acount.access_token;
+    parater[@"status"] = self.sendText.text;
+   
+    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
+        //关闭键盘
+        [self.view endEditing:YES];
+        //转发完成,关闭发送页面
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"发送微博数据失败"];
 
+    }];
 }
 @end

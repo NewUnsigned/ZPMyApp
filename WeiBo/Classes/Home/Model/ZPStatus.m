@@ -51,20 +51,21 @@
 
 - (void)countRowHigth
 {
+    self.rowHight = 0;
     CGFloat margin = 10;
     CGFloat iconHight = 44;
     // 没有转发微博的情况
-    CGFloat picsHight = [self reSetPicViewSize].height;
+    self.picsHight = [self reSetPicViewSize];
     CGFloat toolViewHigth = 44;
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 20;
     if (self.retweeted_status != nil) {
         CGFloat textHight = [self heightForString:self.retweeted_status.text fontSize:17 width:width];
         CGFloat textHightTwo = [self heightForString:self.text fontSize:17 width:width];
-        self.rowHight = 6 * margin + iconHight + textHight + picsHight + toolViewHigth + textHightTwo - 1;
+        self.rowHight =  8 * margin + iconHight + textHight + self.picsHight.height + toolViewHigth + textHightTwo - 1;
         return;
     }
     CGFloat textHight = [self heightForString:self.text fontSize:17 width:width];
-    self.rowHight = 4 * margin + iconHight + textHight + picsHight + toolViewHigth - 2;
+    self.rowHight = 4 * margin + iconHight + textHight + self.picsHight.height + toolViewHigth - 2;
 }
 
 - (CGFloat)heightForString:(NSString *)value fontSize:(float)fontSize width:(CGFloat)width
