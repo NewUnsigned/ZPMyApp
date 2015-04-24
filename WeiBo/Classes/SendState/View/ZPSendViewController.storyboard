@@ -222,12 +222,18 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted" backgroundImage="compose_pic_add_highlighted"/>
+                                            <connections>
+                                                <action selector="addBtnClicked:" destination="my8-it-28W" eventType="touchUpInside" id="Jno-9l-IOF"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-Hu-l8u" userLabel="删除">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-Hu-l8u" userLabel="删除">
                                             <rect key="frame" x="66" y="0.0" width="24" height="24"/>
                                             <state key="normal" backgroundImage="compose_photo_close">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="deleteBtnClicked:" destination="my8-it-28W" eventType="touchUpInside" id="i6Y-oW-CL8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -240,6 +246,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Jlg-Hu-l8u" secondAttribute="trailing" id="uDf-L6-Uo9"/>
                                     <constraint firstAttribute="bottom" secondItem="bzt-6q-PDP" secondAttribute="bottom" id="wV6-MF-8qC"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="addBtnState" destination="bzt-6q-PDP" id="iqq-dT-JF1"/>
+                                    <outlet property="deleteBtnState" destination="Jlg-Hu-l8u" id="EtS-eF-aI5"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -253,7 +263,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zku-fJ-g3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="402"/>
+            <point key="canvasLocation" x="1432" y="409"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xui-N9-CY4">

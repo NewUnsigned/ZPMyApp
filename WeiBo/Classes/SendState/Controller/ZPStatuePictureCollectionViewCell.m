@@ -8,32 +8,40 @@
 
 #import "ZPStatuePictureCollectionViewCell.h"
 @interface ZPStatuePictureCollectionViewCell ()
+@property (weak, nonatomic) IBOutlet UIButton *addBtnState;
 
-@property (weak, nonatomic) IBOutlet UIButton *pictureBtn;
-@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtnState;
 
+- (IBAction)addBtnClicked:(id)sender;
 - (IBAction)deleteBtnClicked:(id)sender;
+
 @end
 @implementation ZPStatuePictureCollectionViewCell
 
-- (void)deleteBtnClicked:(id)sender
-{
-    
-}
 
 - (void)setImage:(UIImage *)image
 {
     if (image == nil) {
-        self.deleteBtn.hidden = YES;
-        
+        self.deleteBtnState.hidden = YES;
+        self.addBtnState.userInteractionEnabled = YES;
         // 注意: 重用问题, 每次要中心设置加号按钮的图片
-        [self.pictureBtn setBackgroundImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
-        [self.pictureBtn setBackgroundImage:[UIImage imageNamed:@"compose_pic_add_highlighted"] forState:UIControlStateHighlighted];
+        [self.addBtnState setBackgroundImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
+        [self.addBtnState setBackgroundImage:[UIImage imageNamed:@"compose_pic_add_highlighted"] forState:UIControlStateHighlighted];
     }else
     {
-        self.deleteBtn.hidden = NO;
-        [self.pictureBtn setBackgroundImage:image forState:UIControlStateNormal];
+        self.deleteBtnState.hidden = NO;
+        self.addBtnState.userInteractionEnabled = NO;
+        [self.addBtnState setBackgroundImage:image forState:UIControlStateNormal];
     }
 }
 
+- (IBAction)addBtnClicked:(id)sender {
+    //注册通知,当按钮被点击时通知控制器设置图片并更新cell
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PictureCellAddButtonClicked" object:self];
+}
+
+- (IBAction)deleteBtnClicked:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PictureCellDeleteButtonClicked" object:self];
+
+}
 @end

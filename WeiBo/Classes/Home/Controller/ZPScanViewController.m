@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ZPScanQrViewController.h"
 
-@interface ZPScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
+@interface ZPScanViewController () <AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 - (IBAction)closeScanView:(id)sender;
 - (IBAction)photoAlbum:(id)sender;
 @property (nonatomic, strong) AVCaptureSession *session;
@@ -22,6 +22,21 @@
 @implementation ZPScanViewController
 
 - (IBAction)photoAlbum:(id)sender {
+    
+    //先设定sourceType为相机，然后判断相机是否可用（ipod）没相机，不可用将sourceType设定为相片库
+//    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+//    if (![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+//        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    }
+    //sourceType = UIImagePickerControllerSourceTypeCamera; //照相机
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //图片库
+    //sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; //保存的相片
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];//初始化
+    picker.delegate = self;
+    picker.allowsEditing = YES;//设置可编辑
+    picker.sourceType = sourceType;
+    [self presentViewController:picker animated:YES completion:nil];//进入照相界面
+
 }
 - (IBAction)closeScanView:(id)sender {
     [self.timeLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];

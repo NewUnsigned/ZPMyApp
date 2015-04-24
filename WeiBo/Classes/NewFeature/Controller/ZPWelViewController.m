@@ -16,7 +16,6 @@
 @interface ZPWelViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *welLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgMidconstraint;
 @end
 
@@ -24,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- [self setIconImageWithURL];
+    [self setIconImageWithURL];
 
     self.iconImage.layer.cornerRadius = 50;
     self.iconImage.layer.masksToBounds = YES;
@@ -37,26 +36,22 @@
 - (void)setIconImageWithURL
 {
     //授权后每次登录更新用户信息
-    
     ZPAccount *account = [ZPAccount accountFromSandbox];
     NSString *urlString = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@",account.access_token,account.uid];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = [NSURLResponse alloc];
     [SVProgressHUD showWithStatus:@"正在获取数据,请稍后!"];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
-//    if (data == nil) {
-//        return;
-//    }
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-    ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
-    [profile save];
-    [SVProgressHUD dismiss];
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-//        ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
-//        [profile save];
-//    }];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data == nil) {
+            return;
+        }
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        ZPProfileInfo *profile = [ZPProfileInfo objectWithKeyValues:dict];
+        [profile save];
+        [SVProgressHUD dismiss];
+
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
