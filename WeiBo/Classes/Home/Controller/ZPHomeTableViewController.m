@@ -11,8 +11,6 @@
 #import "ZPStatusTableViewCell.h"
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
-#import <AFNetworking.h>
-#import <AFHTTPSessionManager.h>
 #import "ZPButton.h"
 #import "ZPHomeTableViewController.h"
 #import "ZPSmallViewController.h"
@@ -20,7 +18,6 @@
 #import "ZPStatus.h"
 #import "ZPUser.h"
 #import "ZPPhoto.h"
-#import "ZPAccount.h"
 #import "ZPTabBar.h"
 #import <PopMenu.h>
 #import "ZPProfileInfo.h"
@@ -28,6 +25,7 @@
 #import "ZPSendViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import <MWPhotoBrowser.h>
+#import "ZPNetworkingManager.h"
 
 @interface ZPHomeTableViewController () <ZPTabBarCustomDelegate,MWPhotoBrowserDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIWindow *window;
@@ -81,21 +79,12 @@
 
 - (void)loadNewStatusWithIdstr:(NSString *)idstr header:(BOOL)header
 {
-    ZPAccount *acount = [ZPAccount accountFromSandbox];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSMutableDictionary *parater = [NSMutableDictionary dictionary];
-    parater[@"access_token"] = acount.access_token;
-    if (header) {
-        parater[@"since_id"] = idstr;
-    }else
-    {
-        parater[@"max_id"] = idstr;
-    }
-    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    ZPNetworkingManager *manager1 = [ZPNetworkingManager downloadManager];
+    
+    [manager1 loadNewStatusWithIdstr:idstr header:header success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *dicts = responseObject[@"statuses"];
-        
         NSArray *tempArr = [ZPStatus objectArrayWithKeyValuesArray:dicts];
-        
         if (header) {
             // 插入到最前面
             NSRange range = NSMakeRange(0, tempArr.count);
@@ -111,7 +100,6 @@
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
         [self.tableView.header endRefreshing];
@@ -256,21 +244,12 @@
 //MARK: 下载微博数据
 - (void)loadWeiBoInfo
 {
-    //取出请求需要的参数
-    ZPAccount *acount = [ZPAccount accountFromSandbox];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSMutableDictionary *parater = [NSMutableDictionary dictionary];
-    if (acount == nil) {
-        return;
-    }
-    parater[@"access_token"] = acount.access_token;
-    
-    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:parater success:^(NSURLSessionDataTask *task, id responseObject) {
+    ZPNetworkingManager *manager = [ZPNetworkingManager downloadManager];
+    [manager loadWeiBoInfomation:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *dicts = responseObject[@"statuses"];
         self.weiboStatus = [[ZPStatus objectArrayWithKeyValuesArray:dicts] mutableCopy];
         [self.tableView reloadData];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failuer:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"获取微博数据失败"];
     }];
 }
@@ -356,8 +335,6 @@ ZPButton *_btn;
         photoBrowser.enableGrid = YES;
         photoBrowser.startOnGrid = YES;
         [weakSelf.navigationController pushViewController:photoBrowser animated:YES];
-//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//        [window addSubview:photoBrowser.view];
     };
     return picCell1;
 }

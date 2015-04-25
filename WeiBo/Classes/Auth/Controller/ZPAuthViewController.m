@@ -13,12 +13,10 @@
 #import "UIWindow+Extension.h"
 #import "ZPProfileInfo.h"
 #import <MJExtension.h>
+#import "ZPNetworkingManager.h"
 
 #define ZP_REQUEST_TOKEN_BEASE_URL @"https://api.weibo.com/oauth2/authorize"
 #define ZP_CLIENT_ID @"422720824"
-#define ZP_SECRET @"b3c26d76af109c1657c6c7912b5acbab"
-#define ZP_REDIRECT_URL @"http://www.baidu.com"
-#define ZP_ACCESSTOKEN_URL @"https://api.weibo.com/oauth2/access_token"
 
 @interface ZPAuthViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *loginWebView;
@@ -62,24 +60,11 @@
 }
 - (void)accessTokenWithCode:(NSString *)code
 {
-    //使用AFN框架和code获取AccessToken
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
-    parameter[@"client_id"] = ZP_CLIENT_ID;
-    parameter[@"client_secret"] = ZP_SECRET;
-    parameter[@"grant_type"] = @"authorization_code";
-    parameter[@"code"] = code;
-    parameter[@"redirect_uri"] = ZP_REDIRECT_URL;
-    
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-
-    [manager POST:ZP_ACCESSTOKEN_URL parameters:parameter success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+    ZPNetworkingManager *manager = [ZPNetworkingManager downloadManager];
+    [manager getAccessTokenWithCode:code success:^(NSURLSessionDataTask *task, id responseObject) {
         ZPAccount *account = [ZPAccount accountWithDict:responseObject];
         [account save];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failuer:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showWithStatus:@"请求失败" maskType:SVProgressHUDMaskTypeBlack];
     }];
 }

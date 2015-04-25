@@ -29,19 +29,8 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBtnClicked:) name:@"PictureCellAddButtonClicked" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteBtnClicked:) name:@"PictureCellDeleteButtonClicked" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
-//键盘将要弹出
-- (void)keyBoardWillShow:(NSNotification *)note
-{
-    //获取键盘的键盘的高度
-}
-//键盘将要隐藏
-- (void)keyBoardWillHidden:(NSNotification *)note
-{
-    NSLog(@"%s",__func__);
-}
+
 - (void)addBtnClicked:(NSNotification *)note
 {    
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];

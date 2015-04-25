@@ -37,7 +37,32 @@
     //直接进入编辑状态
     [self becomeFirstResponder];
     self.sendText.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
+
+//键盘将要弹出
+- (void)keyBoardWillShow:(NSNotification *)note
+{
+    //获取键盘的键盘的高度
+    CGRect keyBoardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat keyBoardHight = keyBoardFrame.size.height;
+    CGFloat animationTime = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    self.toolBarBottonConstraint.constant = keyBoardHight;
+    NSUInteger curve = [note.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    [UIView animateWithDuration:animationTime delay:0 options:curve << 16 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+//键盘将要隐藏
+- (void)keyBoardWillHidden:(NSNotification *)note
+{
+    NSLog(@"%s",__func__);
+}
+
 #pragma mark - UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView
 {

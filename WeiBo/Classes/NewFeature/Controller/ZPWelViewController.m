@@ -12,6 +12,7 @@
 #import "ZPProfileInfo.h"
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
+#import "ZPNetworkingManager.h"
 
 @interface ZPWelViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *welLabel;
@@ -36,6 +37,8 @@
 - (void)setIconImageWithURL
 {
     //授权后每次登录更新用户信息
+    
+    
     ZPAccount *account = [ZPAccount accountFromSandbox];
     NSString *urlString = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@",account.access_token,account.uid];
     NSURL *url = [NSURL URLWithString:urlString];
