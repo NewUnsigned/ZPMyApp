@@ -16,7 +16,7 @@
 static ZPNetworkingManager *_instance;
 + (instancetype)downloadManager
 {
-    dispatch_once_t onceToken;
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSURL *baseURL = [NSURL URLWithString:@"https://api.weibo.com"];
         _instance = [[ZPNetworkingManager alloc]initWithBaseURL:baseURL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];

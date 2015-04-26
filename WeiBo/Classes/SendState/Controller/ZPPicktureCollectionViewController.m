@@ -29,7 +29,9 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBtnClicked:) name:@"PictureCellAddButtonClicked" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteBtnClicked:) name:@"PictureCellDeleteButtonClicked" object:nil];
+
 }
+
 
 - (void)addBtnClicked:(NSNotification *)note
 {    

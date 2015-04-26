@@ -20,14 +20,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *showImage;
 @property (weak, nonatomic) IBOutlet UIButton *longStatue;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sendBtnState;
-
-- (IBAction)selectPicture;
-
-- (IBAction)closeSendVC:(id)sender;
-- (IBAction)sendStatue:(id)sender;
-
+@property (nonatomic, strong) ZPPictureSelectViewController *picVCC;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarBottonConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
+- (IBAction)selectPicture;
+- (IBAction)closeSendVC:(id)sender;
+- (IBAction)sendStatue:(id)sender;
+///  用于判断弹出图片选择器时键盘是是否显示
+@property (nonatomic, assign) BOOL isKeyboardHidden;
 @end
 
 @implementation ZPSendViewController
@@ -37,9 +37,16 @@
     //直接进入编辑状态
     [self becomeFirstResponder];
     self.sendText.delegate = self;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (_isKeyboardHidden == YES) return;
+    //弹出键盘
+    [self.sendText becomeFirstResponder];
 }
 
 //键盘将要弹出
@@ -54,13 +61,12 @@
     [UIView animateWithDuration:animationTime delay:0 options:curve << 16 animations:^{
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        
     }];
 }
 //键盘将要隐藏
 - (void)keyBoardWillHidden:(NSNotification *)note
 {
-    NSLog(@"%s",__func__);
+    self.toolBarBottonConstraint.constant = 0;
 }
 
 #pragma mark - UITextViewDelegate
@@ -78,30 +84,36 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     [self becomeFirstResponder];
-    [UIView animateWithDuration:5 animations:^{
-        self.toolBarBottonConstraint.constant = 255;
-    }];
     return YES;
 }
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    [UIView animateWithDuration:5 animations:^{
-        self.toolBarBottonConstraint.constant = 0;
-    }];
     [self.view endEditing:YES];
+    self.toolBarBottonConstraint.constant = 0;
 }
 //选择图片
 - (IBAction)selectPicture {
-
-    [UIView animateWithDuration:0.2 animations:^{
+    if (_toolBarBottonConstraint.constant != 0) {
+        _isKeyboardHidden = NO;
+    }else{
+        _isKeyboardHidden = YES;
+    }
+    [self.view endEditing:YES];
+    [UIView animateWithDuration:0.25 animations:^{
         self.toolBarBottonConstraint.constant = 0;
-    } completion:^(BOOL finished) {
-        UIStoryboard *picSB = [UIStoryboard storyboardWithName:@"ZPPictureSelectViewController" bundle:nil];
-        UIViewController *picVC = picSB.instantiateInitialViewController;
-        [self.navigationController presentViewController:picVC animated:YES completion:nil];
     }];
+    if (_isKeyboardHidden) {
+        UIStoryboard *picSB = [UIStoryboard storyboardWithName:@"ZPPictureSelectViewController" bundle:nil];
+        _picVCC = picSB.instantiateInitialViewController;
+        [self presentViewController:_picVCC animated:YES completion:nil];
+    }else{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIStoryboard *picSB = [UIStoryboard storyboardWithName:@"ZPPictureSelectViewController" bundle:nil];
+        _picVCC = picSB.instantiateInitialViewController;
+        [self presentViewController:_picVCC animated:YES completion:nil];
+    });
+    }
 }
-
 
 - (IBAction)closeSendVC:(id)sender {
     [self.view endEditing:YES];
